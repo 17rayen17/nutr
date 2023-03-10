@@ -1,0 +1,156 @@
+/*globel rules*/
+
+section{
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+::selection {
+  background-color: #3C6255;
+  color: #fff;
+}
+/* section one */
+
+.LoginZone {
+z-index: 999;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  box-shadow:
+  3px 0 5px rgba(255, 255, 255, 0.788),
+  3px 0 10px rgba(255, 255, 255, 0.637),
+  3px 0 15px rgba(255, 255, 255, 0.562),
+  3px 0 25px rgba(255, 255, 255, 0.445);}
+
+.LoginZone form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+h1{
+  color:#3C6255;
+  font-size: 55px;
+  margin: 8px;
+
+}
+p{
+  color:#3C6255;
+  font-size: 15px;
+  font-weight: bold;
+}
+.title{
+  padding-bottom: 20px;
+}
+
+form label{
+  width: 350px;
+  display:flex ;
+  justify-content: flex-start;
+  padding: 5px ;
+  color : #3C6255;
+  font-weight: bold;
+  transform: translateX(-3px);
+
+}
+
+form input[type="email"],
+form input[type="password"]{
+  width: 350px;
+  height: 30px;
+  margin-bottom: 10px;
+  outline: none;
+  border: 2px solid #ddd;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border: 3px solid #333;
+}
+
+.rmb{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+
+}
+
+form input[type="checkbox"]{
+  margin: 0 5px;
+  cursor: pointer;
+
+}
+
+form input[type="checkbox"]~label{
+  user-select: none;
+  cursor: pointer;
+  color: #3C6255;
+  white-space: nowrap;
+}
+.rmb a {
+  white-space: nowrap;
+  color : #285430;
+}
+
+form input[type="submit"]{
+  width: 350px;
+  height: 30px;
+  background-color: #285430;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.imgzone {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+img{
+  width: 100%;
+}
+
+.imgzone :nth-child(2){
+transform: scale(1.1);
+}
+
+form ~p{
+  color: #3C6255;
+}
+
+form ~p a{
+  color : #285430;
+}
+
+
+@media (max-width: 850px) {
+  .LoginZone {
+      width: 100%;
+  }
+  .imgzone {
+      display: none;
+  }
+}

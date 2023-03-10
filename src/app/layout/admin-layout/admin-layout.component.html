@@ -1,0 +1,25 @@
+<section>
+  <div class="header">
+    <img src="assets/Capture2.PNG" alt="logo" routerLink="/admin" style="cursor: pointer;">
+    <img src="assets/pdp.jpg" alt="pdp" routerLink="/admin" style="cursor: pointer;">
+    <div class="name">
+      <h2>rayen andolsi</h2>
+      <p>exemple@gmail.com</p>
+    </div>
+    <nav>
+      <a [routerLink]="['dashboard']" class="active">nutritionist</a>
+      <a href="#">Assistant</a>
+      <a href="#">Paiement</a>
+      <a [routerLink]="['alimant']">Alimant</a>
+    </nav>
+    <a href="" class="logout"><button class="fas fa-sign-out-alt" (click)="logout()"> logout</button></a>
+  </div>
+
+  <div class="change">
+    <router-outlet></router-outlet>
+  </div>
+</section>
+
+
+
+

@@ -1,0 +1,30 @@
+.header{
+  margin:15px 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.inp{
+  width: 100%;
+  position: relative;
+}
+
+.header a{
+  color: #636332;
+  font-size: 26px;
+
+}
+input{
+  outline: none;
+  border: none;
+  height: 50px;
+  padding: 5px 10px;
+  box-shadow: 2px 4px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+}

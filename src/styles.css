@@ -1,1 +1,79 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,700;1,600&display=swap');
+
+::-webkit-scrollbar{
+  width: 10px;
+  border-radius: 10px;
+
+
+}
+
+::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(#D5E3B6 ,#ccdbab,white);
+  border-radius: 5px;
+}
+
+
+:root {
+    --main-color: #688268;
+    --txt-color: #263238;
+}
+
+/* global rules */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+::selection {
+    background-color: #3C6255;
+    color: #fff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        width: 950px;
+    }
+}
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        width: 1050px;
+    }
+}
