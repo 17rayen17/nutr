@@ -1,0 +1,80 @@
+/* .mat-dialog-container {
+  padding: 0px !important;
+  width: 450px !important;
+  height: 80vh !important;
+} */
+
+/* Style the calendar container */
+#calendar {
+  width: 950px;
+  height: 1000px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.fc-header-toolbar {
+  padding: 10px 25px;
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child),
+.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child) {
+  background: transparent;
+  color: #688268;
+  border: 1px solid currentColor;
+  transition: 0.2s;
+}
+
+.fc-direction-ltr .fc-button-group>.fc-button:not(:last-child):hover,
+.fc-direction-ltr .fc-button-group>.fc-button:not(:first-child):hover {
+  background-color: #688268;
+  color: #fff;
+  border: 1px solid #688268;
+}
+
+
+.fc-direction-ltr .fc-toolbar>*>:not(:first-child){
+  background: #688268;
+  color: #fff;
+  border: 1px solid currentColor;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.fc-direction-ltr .fc-toolbar>*>:not(:first-child):hover{
+  background-color: transparent;
+  color: #688268;
+  border: 1px solid #688268;
+}
+
+.fc .fc-toolbar-title{
+  color: #345534;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start{
+  background: #688268;
+  padding-left: 5px;
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: 2px 0;
+  border: none;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end > *,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start > * {
+  white-space: pre-line;
+}
+
+.fc-direction-ltr .fc-daygrid-event.fc-event-end::-webkit-scrollbar,
+.fc-direction-rtl .fc-daygrid-event.fc-event-start::-webkit-scrollbar {
+  background-color: #688268;
+  width: 3px;
+}
+
+.fc .fc-more-popover .fc-popover-body{
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: scroll;
+}

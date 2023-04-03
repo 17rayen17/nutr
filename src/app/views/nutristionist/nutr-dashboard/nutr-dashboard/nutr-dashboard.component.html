@@ -1,0 +1,83 @@
+<div class="profile">
+  <div>
+
+    <i class="fa-solid fa-bell fa-lg notifbtn" data-notif="99"></i>
+    <div class="d-none listnotif" >
+      <nav>
+        <div>
+          <a *ngFor="let i of data">
+            {{i.title}}
+            <span>start at: {{i.start}}</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div id="holdBtn">
+      <i class="fa-regular fa-circle-user fa-lg user"></i>
+      <ul id="holdList" class="holdList hide">
+
+        <li><a href="">profile</a></li>
+        <li><a href="">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--/////////////////////////////////////////////-->
+<h2>Dashboard</h2>
+<div class="links">
+  <!-- ================================== -->
+  <a [routerLink]="['patient']">
+    <div class="title">
+      <i class="fa-solid fa-users"></i>
+      <span>Patient</span>
+    </div>
+    <span class="nb">{{patients.length}}</span>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['agenda']">
+    <div class="title">
+      <i class="fa-regular fa-calendar-days"></i>
+      <span>Agenda</span>
+    </div>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['assistant']">
+    <div class="title">
+      <i class="fa-solid fa-user-pen"></i>
+      <span>Assistant</span>
+    </div>
+    <span class="nb">{{assistant.length}}</span>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['nutr-profile']">
+    <div class="title">
+      <i class="fa-solid fa-address-card"></i>
+      <span>Profile</span>
+    </div>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+</div>
+
+
+<!--
+<a href=""><i class="fa-solid fa-leaf"></i><span>Nutristion</span></a>
+<a href=""><i class="fa-solid fa-leaf"></i><span>Assistant</span></a>
+<a href=""><i class="fa-solid fa-leaf"></i><span>agenda</span></a>
+<a href=""><i class="fa-solid fa-user"></i><span>Profile</span></a>
+-->

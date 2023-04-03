@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthloginService } from 'src/app/services/authlogin.service';
@@ -11,33 +11,47 @@ import { AuthloginService } from 'src/app/services/authlogin.service';
   providers:[AuthloginService]
 })
 export class LoginComponent implements OnInit {
-  email = ''
-  password = ''
-  test = false
+
   errorMessage: any
   loginForm!: FormGroup
 
-  dataR: any;
 
-  constructor(private formb: FormBuilder,private auth : AuthloginService , private router:Router) {}
+
+  constructor(private formb: FormBuilder, private auth: AuthloginService, private router: Router) {
+    sessionStorage.clear();
+
+  }
 
   ngOnInit(): void {
-    this.loginForm = this.formb.group({
-      email: ['', Validators.compose([Validators.required,Validators.email])],
-      password:['', Validators.compose([Validators.required,Validators.maxLength(8)])]
+    this.loginForm = new FormGroup({
+      'email': new FormControl(null ,[Validators.required,Validators.email]),
+      'password':new FormControl(null, Validators.required)
     })
-  }
-  login() :void {
-    this.auth.login(this.email, this.password).subscribe(result => {
-      this.dataR = result
-      // console.log(this.dataR)
-      this.auth.saveToken(this.dataR.access_token)
 
-      this.router.navigate(['/admin'])
-    }, err => {
-      this.errorMessage='INVALID DATA'
-      console.log('missing error', err)
-    })
+  }
+  dataR: any;
+
+  login() {
+    if (this.loginForm.valid) {
+      this.auth.logincode(this.loginForm.value).subscribe(res => {
+        this.dataR = res
+          if (this.dataR.user.role == "admin") {
+            sessionStorage.setItem('token', this.dataR.access_token)
+            sessionStorage.setItem('role', this.dataR.user.role)
+            alert('successfully admin login')
+            this.router.navigate(['/admin'])
+
+          } else if (this.dataR.user.role == "nutritionist") {
+            sessionStorage.setItem('token', this.dataR.access_token)
+            sessionStorage.setItem('role', this.dataR.user.role)
+            this.router.navigate(['/nutritionist'])
+            alert('successfully nutritionist login')
+          }
+
+
+      })
+    }
+
   }
 
 }

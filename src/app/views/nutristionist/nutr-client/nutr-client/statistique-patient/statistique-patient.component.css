@@ -1,0 +1,66 @@
+.row{
+width: 800px !important;
+height: 580px !important;
+padding: 10px !important;
+}
+.col > button {
+  position: absolute !important;
+  right: -20px;
+  top: -35px;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  transition: 0.3s;
+}
+.col > button:hover {
+  transform: rotate(0.5turn);
+}
+
+
+.cards{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.cards .c {
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  transition: 0.4s;
+  animation: action 0.9s ease 0s backwards alternate;
+}
+
+.cards .c * {
+  cursor: default;
+}
+
+.cards .c  h4{
+  font-size: 20px;
+  color: #777;
+}
+.cards .c  span{
+  font-size: 30px;
+  font-weight: 600;
+  color: #688268;
+}
+
+.cards .c:hover {
+  transform: translateY(-15px);
+}
+
+
+@keyframes action {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

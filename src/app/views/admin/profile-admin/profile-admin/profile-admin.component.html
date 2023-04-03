@@ -1,51 +1,69 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
 <section>
-  <div class="global">
-    <div class="profilePage">
-      <h1>Profile</h1>
-      <div class="profile">
-        <div>
-          <img src="assets/pdpBg.jpg" alt="background">
-          <img src="assets/ProfilePictureMaker.png" alt="pdp">
-        </div>
-        <div>
-          <h2>exemple exemple</h2>
-          <p>exemple@gmail.com</p>
-          <button>Edit Profile</button>
-        </div>
+  <h1>Admin Profile</h1>
+  <div class="profile">
+    <img src="./assets/pdpBg.jpg" alt="" class="bg" height="50" />
+    <img src="./assets/pdp.png" alt="" class="pdp" height="50"/>
+    <div class="det">
+      <div>
+        <h3>test</h3>
+        <p>test@test.test</p>
       </div>
+      <button>edit profile</button>
     </div>
   </div>
+  <div class="dashboard"></div>
+
+  <!--///////////////////////////////////////////////////////////////////////-->
+
+
+<div class="links">
+  <!-- ================================== -->
+  <a [routerLink]="['admin-nutr']">
+    <div class="title">
+      <i class="fa-solid fa-users"></i>
+      <span>nutritionist</span>
+    </div>
+    <span class="nb">{{nutritionist.length}}</span>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['aliment']">
+    <div class="title">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Aliment</span>
+    </div>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['admin-assistant']">
+    <div class="title">
+      <i class="fa-solid fa-user-pen"></i>
+      <span>Assistant</span>
+    </div>
+    <span class="nb">{{assistant.length}}</span>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+  <a [routerLink]="['paiement']">
+    <div class="title">
+      <i class="fa-solid fa-credit-card"></i>
+      <span>Paiement</span>
+    </div>
+    <div class="down">
+      <span>View Details</span>
+      <i class="fa-solid fa-angle-right"></i>
+    </div>
+  </a>
+  <!-- ================================== -->
+</div>
+
 </section>
-</div>
-  
-  <div class="col">
-    <h1>FICHE REGIME</h1>
-
-      <form class="example-form">
-        <mat-form-field>
-          <input
-            type="text"
-            placeholder="SEARCH"
-            [formControl]="myControl"
-            matInput
-            [matAutocomplete]="auto"
-          />
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option
-              *ngFor="let option of filteredOptions | async"
-              [value]="option.name"
-            >
-              {{ option.name }}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </form>
-
-
-  </div>
-
-</div>
-</div>

@@ -1,37 +1,31 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, map, Observable, startWith, switchMap } from 'rxjs';
-import { AutocompeteService } from 'src/app/services/autocompete.service';
+import { Component, OnInit } from '@angular/core';
+import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
 @Component({
   selector: 'app-profile-admin',
   templateUrl: './profile-admin.component.html',
   styleUrls: ['./profile-admin.component.css']
 })
-export class ProfileAdminComponent {
-  myControl = new FormControl();
-  options = [];
-  filteredOptions: Observable<any>;
+export class ProfileAdminComponent implements OnInit {
 
+  constructor(private crud : CrudnutristionistService) { }
 
-  constructor(private service: AutocompeteService) {
-     this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      debounceTime(400),
-      distinctUntilChanged(),
-      switchMap(val => {
-            return this.filter(val || '')
-       })
-    )
-   }
+ngOnInit(): void {
+  this.getnutritionist()
+  this.getassist()
+}
 
-  filter(val: string): Observable<any> {
+nutritionist: any[] = []
+  getnutritionist() {
+    this.crud.getnutr().subscribe(res => {
+      this.nutritionist=res
+    })
+  }
+  assistant: any[] = []
+  getassist() {
+    this.crud.getassist().subscribe(res => {
+      this.assistant=res
+    })
+  }
 
-    return this.service.getData()
-     .pipe(
-       map(response => response.filter((option:any) => {
-         return option.name.toLowerCase().indexOf(val.toLowerCase()) === 0
-       }))
-     )
-   }
 }

@@ -1,0 +1,46 @@
+<div class="contain">
+  <button (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+  <div class="header">
+    <h1>Add appointment</h1>
+  </div>
+  <form (ngSubmit)="addappointment()" [formGroup]="loaddate">
+    <div class="title d-flex flex-column">
+      <label for="title">title</label>
+      <input type="text" id="title" placeholder="title" formControlName="title">
+    </div>
+    <label for="patient">Patient</label>
+    <select class="form-select" id="patient" aria-label="Default select example" formControlName="name">
+
+      <option *ngFor="let i of patient"
+        value="{{i.name}}" >
+        {{i.name}}</option>
+
+    </select>
+    <div class="dates">
+      <!---->
+      <div class="d-flex flex-column">
+        <label for="date">Start Date</label>
+        <input type="date" id="date" formControlName="start" [value]="loaddate.value.start | date:'yyyy-MM-dd'" >
+      </div>
+      <div class="d-flex flex-column">
+        <label for="startime">Start Time</label>
+        <input type="time" name="end" id="startime" formControlName="end">
+      </div>
+
+    </div>
+    <div class="color">
+      <label for="">Please choose a color</label>
+      <div>
+        <span class="" data-color="#0084ff"></span>
+        <span class="" data-color="#ff3c00"></span>
+        <span class="choosed" data-color="#5ace69"></span>
+        <span class="" data-color="#9740d1"></span>
+        <span class="" data-color="#d2d42d"></span>
+      </div>
+    </div>
+    <div class="submit">
+      <button class="closeBtn" type="button" (click)="close()">Close</button>
+      <button class="addBtn" type="submit">{{data?'update':'add'}}</button>
+    </div>
+  </form>
+</div>

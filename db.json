@@ -1,0 +1,140 @@
+{
+  "user": [
+    {
+      "id": "admin@in.com",
+      "name": "admin User",
+      "password": "123456",
+      "email": "admin@in.com",
+      "gender": "male",
+      "role": "admin",
+      "isactive": false
+    }
+  ],
+  "nutrist": [
+    {
+      "id": 1,
+      "username": "rayen",
+      "email": "ghassen@gmail.com",
+      "phone": "526-5987"
+    }
+  ],
+  "patien": [
+    {
+      "name": "rayen",
+      "email": "rayen@gmail.com",
+      "birthday": "2023-03-17",
+      "Gender": "Male",
+      "Language": "Arabic",
+      "phone": "526-5987",
+      "address": "Ben arous",
+      "medicalCondition": "",
+      "Caloric": "1280",
+      "Idealweight": "70",
+      "Weight": "70",
+      "Height": "173",
+      "Waist": "15",
+      "Physical_activity": "3",
+      "id": 1
+    },
+    {
+      "name": "khalil",
+      "email": "khalil@gmail.com",
+      "birthday": "",
+      "Gender": "Male",
+      "Language": "English",
+      "phone": "(206) 555-8122",
+      "address": "Ben arous",
+      "medicalCondition": "cool",
+      "Caloric": "1280",
+      "Idealweight": "70",
+      "Weight": "",
+      "Height": "",
+      "Waist": "",
+      "Physical_activity": "",
+      "id": 2
+    },
+    {
+      "name": "ar ar",
+      "email": "rayen.andolsi98@gmail.com",
+      "birthday": "2023-03-08",
+      "Gender": "Male",
+      "Language": "English",
+      "phone": "5265987",
+      "address": "aa",
+      "medicalCondition": "cool",
+      "Caloric": "1280",
+      "Idealweight": "70",
+      "Weight": "70",
+      "Height": "173",
+      "Waist": "15",
+      "Physical_activity": "2",
+      "id": 3
+    }
+  ],
+  "appointement": [
+    {
+      "title": "rayen first date",
+      "name": "rayen",
+      "start": "2023-04-03",
+      "end": "09:00",
+      "colors": "#5ace69",
+      "id": 1
+    },
+    {
+      "title": "khalil bulking",
+      "name": "khalil",
+      "start": "2023-04-11",
+      "end": "12:00",
+      "colors": "#ff3c00",
+      "id": 2
+    },
+    {
+      "title": "ghassen first date",
+      "name": "ar ar",
+      "start": "2023-04-10",
+      "end": "16:15",
+      "colors": "#ff3c00",
+      "id": 3
+    },
+    {
+      "title": "rayen",
+      "name": "rayen",
+      "start": "2023-04-07",
+      "end": "13:08",
+      "colors": "",
+      "id": 4
+    }
+  ],
+  "assistant": [
+    {
+      "firstname": "lamia",
+      "lastname": "soumri",
+      "email": "lamia@gmail.com",
+      "phone": "96173799",
+      "address": "Ben arous",
+      "city": "tunis",
+      "description": "mother",
+      "birth_date": "2023-03-07",
+      "password": "123456",
+      "password_confirmation": "123456",
+      "id": 1
+    }
+  ],
+  "aliment": [
+    {
+      "famille": "veg",
+      "aliments": "1",
+      "Calories": "1320",
+      "Proteines": "120",
+      "glucides": "540",
+      "lipides": "50",
+      "quantite": "4",
+      "id": 1
+    }
+  ],
+  "patientstats": [
+    {
+      "Weight": ""
+    }
+  ]
+}

@@ -7,10 +7,10 @@
       <p>exemple@gmail.com</p>
     </div>
     <nav>
-      <a [routerLink]="['dashboard']" class="active">nutritionist</a>
-      <a href="#">Assistant</a>
-      <a href="#">Paiement</a>
-      <a [routerLink]="['alimant']">Alimant</a>
+      <a [routerLink]="['admin-nutr']" routerLinkActive="active">nutritionist</a>
+      <a [routerLink]="['admin-assistant']" routerLinkActive="active">Assistant</a>
+      <a [routerLink]="['paiement']" routerLinkActive="active">Paiement</a>
+      <a [routerLink]="['aliment']" routerLinkActive="active">Aliment</a>
     </nav>
     <a href="" class="logout"><button class="fas fa-sign-out-alt" (click)="logout()"> logout</button></a>
   </div>

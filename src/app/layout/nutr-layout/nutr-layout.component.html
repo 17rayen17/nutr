@@ -1,0 +1,23 @@
+<section>
+  <div class="header">
+    <img src="assets/Capture2.PNG" alt="logo" routerLink="/nutritionist" style="cursor: pointer;">
+    <img src="assets/pdp.jpg" alt="pdp" routerLink="/nutritionist" style="cursor: pointer;">
+    <div class="name">
+      <h2>{{firstname}} {{lastname}}</h2>
+      <p>{{email}}</p>
+    </div>
+    <nav>
+      <a [routerLink]="['patient']" routerLinkActive="active">Patient</a>
+      <a [routerLink]="['agenda']" routerLinkActive="active">Agenda</a>
+      <a [routerLink]="['assistant']" routerLinkActive="active">Assistant</a>
+      <a [routerLink]="['nutr-profile']" routerLinkActive="active">Profile</a>
+    </nav>
+    <a href="" class="logout"><button class="fas fa-sign-out-alt" (click)="logout()"> logout</button></a>
+  </div>
+
+  <div class="change">
+    <router-outlet></router-outlet>
+  </div>
+</section>
+
+

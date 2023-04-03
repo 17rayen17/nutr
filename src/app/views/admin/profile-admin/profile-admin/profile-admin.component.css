@@ -1,64 +1,114 @@
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+section >div {
+  margin-bottom: 80px;
 }
 
-section{
-  width: 100;
-  height: 100vh;
-  display: flex;
-  overflow: hidden;
-}
-
-.global {
-  overflow-y: scroll;
-  width: 100%;
-}
-.profilePage {
+section > h1{
   padding: 20px;
-  position: relative;
-  width: 50%;
-}
-.profilePage > h1 {
   font-size: 35px;
-  padding-left: 20px;
 }
-.profilePage .profile{
-  padding-left: 25px;
+section .profile {
+  position: relative;
+  padding: 0 20px
 }
-.profilePage .profile div > img {
-  height: 250px;
-  border-top-right-radius: 19px;
-  border-top-left-radius: 19px;
+section .profile .bg {
+  height: 200px;
+  border-radius: 12px 12px 0 0;
 }
-.profilePage .profile div img:nth-child(2) {
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid #636332;
+section .profile .pdp {
   position: absolute;
-  left: 12%;
-  top: 280px;
+  left: 50px;
+  bottom: 20px;
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.profilePage .profile div:nth-child(2) {
-  margin-left: 100px;
+section .det {
   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 80px;
+  padding-left: 100px;
 }
-.profilePage .profile div:nth-child(2) h2 {
-  font-size: 25px;
+
+section .det div * {
+  padding: 0;
   margin: 0;
 }
-.profilePage .profile div:nth-child(2) button{
-  position: absolute;
-  right: 50px;
-  top: 10px;
-  border: none;
-  background-color: #636332;
-  color: #fff;
-  width: 100px;
-  padding: 0 5px;
-  border-radius: 5px;
-  font-size: 12px;
+section .det div h3 {
+  font-weight: 700;
+  font-size: 17px;
 }
+
+section .det button {
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  padding: 0px 10px;
+  background-color: #688268;
+  color: #fff;
+  border-radius: 8px;
+}
+
+/*------dashboard-admin------------*/
+
+.links {
+  padding: 20px;
+  display: grid !important;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.links a {
+  position: relative;
+  overflow: hidden;
+  background-color: #688268;
+  height: 150px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.links a .title {
+  font-size: large;
+  gap: 5px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+.links a .title span {
+  padding-left: 10px;
+}
+
+.links a .down {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background-color: #9bad9b;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links a .down span {
+  text-decoration: underline;
+}
+
+.links a .nb {
+  font-size: 40px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+}
+
+.links a:hover {
+  filter: brightness(90%);
+}
+

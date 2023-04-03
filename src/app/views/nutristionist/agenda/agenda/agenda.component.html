@@ -1,0 +1,21 @@
+<div id="calendar">
+  <full-calendar [options]="calendarOptions" >
+    <ng-template #eventContent let-arg >
+      <div class="temp" >
+        <b style="color:black">TITLE : {{arg.event.title}} </b>
+        <br>
+        <b style="color:black">PATIENT NAME :{{arg.event.extendedProps.name}} </b>
+      <br>
+      <li>
+        <i class="start">start at : {{arg.event.start | date:'yyyy-MM-dd'}}</i>
+      </li>
+      <li>
+        <i>exactly at: {{arg.event.extendedProps.endStr}}PM</i>
+      </li>
+    <!--<button (click)="logEvent(arg.event)">Log Event</button>-->
+    </div>
+    </ng-template>
+  </full-calendar>
+</div>
+
+

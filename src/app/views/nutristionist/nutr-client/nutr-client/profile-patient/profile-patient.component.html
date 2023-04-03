@@ -1,0 +1,121 @@
+<section>
+  <div class="globalpatient">
+    <div class="profilepatient" *ngFor="let i of events">
+      <h1>Profile {{i.name}}</h1>
+      <div>
+        <div class="imgpatient">
+          <img src="./assets/pdpBg.jpg" alt="" class="bgpatient" height="50">
+          <img src="./assets/pdp.png" alt="" class="pdp" height="50">
+        </div>
+        <div class="donnep">
+          <h2>{{i.name}}</h2>
+          <p>{{i.email}}</p>
+          <button>edit profile</button>
+        </div>
+      </div>
+    </div>
+    <!-- buton progress etc ... -->
+    <div class="iconpatient">
+      <button type="button" (click)="openstat()"><i class="fa-solid fa-gauge-high"></i><span>Progress</span></button>
+      <button type="button"><i class="fa-solid fa-clipboard"></i><span>Notes</span></button>
+    </div>
+    <!--fiche consultation etc ... -->
+    <div class="fichetitle">
+        <div class="controls">
+          <div class="f-one active" data-fiche="one">fiche consoultation</div>
+          <div class="f-two" data-fiche="two">fiche patient</div>
+        </div>
+        <div class="btns">
+          <div class="fiche one active" id="one">
+            <button>
+              <i class="fa-solid fa-plus"></i>
+              create new consultation
+            </button>
+            <button>1</button>
+          </div>
+          <div class="fiche two " id="two">
+            <button (click)="onchange()">
+              <i class="fa-solid fa-plus"></i>
+              create new Patient
+            </button>
+            <button>2</button>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="formp" *ngIf="affiche">
+    <h1>fiche patient</h1>
+    <form>
+      <div class="left-side">
+        <label for="">antécédents médicaux</label>
+        <input type="text">
+
+        <label for="">médicaments actuels</label>
+        <input type="text">
+
+        <label for="">allergies</label>
+        <input type="text">
+
+        <label for="">problémes de santé chronique</label>
+        <input type="text">
+
+        <label for="">poids</label>
+        <input type="text">
+
+        <label for="">taille</label>
+        <input type="text">
+      </div>
+      <!-- ============================= -->
+      <div class="right-side">
+        <label for="">tour de taille</label>
+        <input type="text">
+
+        <label for="">tour de hanche</label>
+        <input type="text">
+
+        <label for="">volumes d'eau</label>
+        <input type="text">
+
+        <label for="">masse de graisse</label>
+        <input type="text">
+
+        <label for="">masse musculaire</label>
+        <input type="text">
+
+        <div class="choices">
+          <p>Mes principaux objectifs sont centrés sur</p>
+          <div class="mychoices">
+            <div>
+              <input type="checkbox" name="" id="one">
+              <label for="one">perte de poids</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="" id="two">
+              <label for="two">Gain musculaire</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="" id="three">
+              <label for="three">Gain de force</label>
+            </div>
+
+            <div>
+              <input type="checkbox" name="" id="four">
+              <label for="four">performance athétique</label>
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" value="Submit">
+
+      </div>
+    </form>
+  </div>
+
+</section>
+
+
+

@@ -1,0 +1,83 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.global {
+  width: 80vw;
+  padding: 10px;
+}
+form {
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.info{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr) );
+  gap: 20px 10px;
+  padding: 10px;
+}
+
+.info div,
+.calorie div {
+  display: flex;
+  flex-direction: column;
+}
+
+div input {
+  outline: none;
+  border: 1px solid #cacaca;
+  padding: 0 15px;
+  height: 25px;
+}
+div input:focus{
+  box-shadow: 0 0 5px 2px #4ba44183 ;
+  border-color: transparent;
+}
+.calorie{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr) );
+  gap: 20px 10%;
+  padding: 10px;
+}
+
+.topcard{
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.topcard p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.inputs{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(calc(100% / 4 - 10px), 1fr) );
+  gap: 20px 10px;
+  padding: 10px;
+}
+.inputs div{
+  display: flex;
+  flex-direction: column;
+}
+.card{
+  margin-bottom: 15px;
+}
+
+.btns{
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.btns button{
+  padding: 5px 20px;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+

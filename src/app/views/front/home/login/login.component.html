@@ -2,40 +2,19 @@
 
 
 <section class="login">
-  <div class="LoginZone">
-    <div class="title">
-      <h1>Welcome back</h1>
-      <p>please enter your details</p>
-    </div>
-    <form action="" (ngSubmit)="login()" [formGroup]="loginForm">
-      <label for="">Email</label>
-      <input type="email" name="email" id="email" placeholder="Enter your email"
-       required autofocus [(ngModel)]="email" formControlName="email">
-
-      <label for="">password</label>
-      <input type="password" name="password" id="password"
-      placeholder="*******" required [(ngModel)]="password" formControlName="password">
-      <p *ngIf="errorMessage" style="color: red;">{{errorMessage}}</p>
-      <div class="rmb">
-        <input type="checkbox" name="" id="check">
-        <label for="check">Remember for 30 days</label>
-        <a href="#">Forgot password</a>
-      </div>
-      <input type="submit" value="Sign in">
+  <div class="bg">
+    <img src="assets/login1.png" alt="">
+    <img src="assets/login2.png" alt="">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h2>Login</h2>
+      <input type="email" placeholder="email" formControlName="email">
+      <span *ngIf="!loginForm.get('email')?.valid && loginForm.get('email')?.touched">please enter a valid mail!</span>
+      <input type="password" placeholder="password" formControlName="password">
+      <span *ngIf="!loginForm.get('password')?.valid && loginForm.get('password')?.touched">please enter a password!</span>
+      <button type="submit">login</button>
 
     </form>
-
-    <p>Don't have an account? <a href="#">Sign Up</a></p>
-
-    <!--<p>E-Health  copyright | 2023</p>-->
   </div>
-
-  <div class="imgzone">
-    <img src="assets/login/top.png" alt="Login_image" />
-    <img src="assets/login/mid.png" alt="">
-    <img src="assets/login/bot.png" alt="">
-  </div>
-
 </section>
 
 

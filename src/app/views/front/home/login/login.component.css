@@ -1,156 +1,134 @@
-/*globel rules*/
+.login {
+  position: relative;
+}
 
-section{
+.login .bg {
+  position: relative;
+  margin-top: 50px;
   display: flex;
-  flex-direction: row;
-  height: 100vh;
-}
-
-a{
-  text-decoration: none;
 }
 
 
-::selection {
-  background-color: #3C6255;
-  color: #fff;
-}
-/* section one */
-
-.LoginZone {
-z-index: 999;
+.login .bg img:first-of-type {
   width: 50%;
+}
+.login .bg img:last-of-type {
+  width: fit-content;
+  position: relative;
+  width: 50%;
+  left: -230px;
+  z-index: -1;
+}
+
+.login form {
+  background-color: transparent;
+  border-radius: 12px;
+  border: 1px solid #000;
+  width: 350px;
+  position: absolute;
+  z-index: 999;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  top: 50px;
+  right: 150px;
+  padding: 20px;
+  padding-top: 35px;
+  gap: 20px;
+}
+
+
+.login form > h2{
   text-align: center;
-  box-shadow:
-  3px 0 5px rgba(255, 255, 255, 0.788),
-  3px 0 10px rgba(255, 255, 255, 0.637),
-  3px 0 15px rgba(255, 255, 255, 0.562),
-  3px 0 25px rgba(255, 255, 255, 0.445);}
-
-.LoginZone form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+  padding: 5px 60px;
+  border-radius: 8px;
+  margin-left: 30%;
+  margin-bottom: 60px;
+  width: fit-content;
+  background-color: #ddd;
+  color: #688268;
+  font-size: 25px;
+  position: relative;
 }
-h1{
-  color:#3C6255;
-  font-size: 55px;
-  margin: 8px;
-
+.login form > h2:before {
+  content: "";
+  position: absolute;
+  left: -45%;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #688268;
 }
-p{
-  color:#3C6255;
-  font-size: 15px;
-  font-weight: bold;
-}
-.title{
-  padding-bottom: 20px;
-}
-
-form label{
-  width: 350px;
-  display:flex ;
-  justify-content: flex-start;
-  padding: 5px ;
-  color : #3C6255;
-  font-weight: bold;
-  transform: translateX(-3px);
-
+.login form > h2:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  width: 60px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: #aaa;
 }
 
-form input[type="email"],
-form input[type="password"]{
-  width: 350px;
-  height: 30px;
-  margin-bottom: 10px;
+.login form input {
+  width: 250px;
+  padding: 5px 15px;
+  border-radius: 8px;
   outline: none;
-  border: 2px solid #ddd;
-  padding: 0 10px;
-  border-radius: 5px;
+  background-color: #ddd;
+  margin: 0 auto;
+  border: 1px solid transparent;
 }
 
-form input[type="email"]:focus,
-form input[type="password"]:focus {
-  border: 3px solid #333;
+.login form input::placeholder  {
+  color: #000;
 }
 
-.rmb{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 350px;
-
+.login form input:focus {
+  border: 1px solid #111;
 }
 
-form input[type="checkbox"]{
-  margin: 0 5px;
-  cursor: pointer;
-
-}
-
-form input[type="checkbox"]~label{
-  user-select: none;
-  cursor: pointer;
-  color: #3C6255;
-  white-space: nowrap;
-}
-.rmb a {
-  white-space: nowrap;
-  color : #285430;
-}
-
-form input[type="submit"]{
-  width: 350px;
-  height: 30px;
-  background-color: #285430;
+.login form button {
+  width: 120px;
+  margin: 0 auto;
+  padding: 10px;
   border: none;
-  outline: none;
-  color: #fff;
-  border-radius: 5px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  cursor: pointer;
+  background-color: #ddd;
+  color: #688268;
+  font-size: 23px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
-form input[type="submit"]:hover {
-  opacity: 0.9;
+.login form button:hover {
+  background-color: #aaa;
 }
 
-.imgzone {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-img{
-  width: 100%;
-}
-
-.imgzone :nth-child(2){
-transform: scale(1.1);
-}
-
-form ~p{
-  color: #3C6255;
-}
-
-form ~p a{
-  color : #285430;
-}
-
-
-@media (max-width: 850px) {
-  .LoginZone {
-      width: 100%;
+@media (max-width:992px){
+  .login .bg img:first-of-type{
+    display: none;
   }
-  .imgzone {
-      display: none;
+  .login .bg img:last-of-type {
+    width: 70%;
+    left: 10px;
   }
+}
+@media (max-width:767px){
+  .login .bg img:first-of-type{
+    display: none;
+  }
+  .login .bg img:last-of-type {
+    display: none;
+  }
+  .login form {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+span{
+  color: red;
+  text-align: center;
+  margin: 0;
 }

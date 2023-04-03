@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col">
+    <button (click)="close()"><i class="fa-solid fa-xmark"></i></button>
+    <h2>Progress</h2>
+    <div class="cards">
+        <div class="c" *ngFor="let i of cardsname">
+          <h4>{{i}}</h4>
+          <span>9999</span>
+        </div>
+    </div>
+    <canvas id="piechart"></canvas>
+  </div>
+</div>
