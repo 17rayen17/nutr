@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 import { AgendaRoutingModule } from './agenda-routing.module';
 import { AgendaComponent } from './agenda/agenda.component';
@@ -27,7 +29,8 @@ import { AddAppointmentsComponent } from './agenda/add-appointments/add-appointm
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class AgendaModule { }

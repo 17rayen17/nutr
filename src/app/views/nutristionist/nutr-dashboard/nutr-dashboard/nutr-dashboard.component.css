@@ -14,10 +14,21 @@
 .profile > div {
   padding: 10px;
   display: flex;
-  gap: 20px;
+  gap: 35px;
   align-items: center;
   position: relative;
 
+}
+.notifbadge{
+  position: absolute;
+  right: 70px;
+  top: 0px;
+  width: 6px !important;
+  height: 5px !important;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile > div .user {
@@ -37,30 +48,6 @@
   right: -13px;
   position: absolute;
   background-color: #000;
-}
-#holdBtn {
-  position: relative;
-}
-.hide {
-  display: none;
-}
-.holdList{
-  z-index: 999;
-  position: absolute;
-  border: 2px solid #ddd;
-  left: -25px;
-  top: 25px;
-}
-.holdList li a {
-  color: #000;
-  text-decoration: none;
-}
-.holdList li:not(:last-of-type){
-  border-bottom: 1px solid #ddd;
-}
-
-.holdList li {
-  padding: 10px;
 }
 
 h2 {
@@ -150,6 +137,55 @@ h2:after {
 .links a:hover {
   filter: brightness(90%);
 }
+/* profileIcon */
+.profileIcon{
+  transform: translateY(-4px);
+  position: relative;
+}
+.profileIcon > i{
+  font-size: 33px;
+}
+
+.profileIcon > i::after {
+  content: "";
+  border: 6px solid #000;
+  border-color: #000 transparent transparent transparent;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.profileIcon > i.active::after{
+  border-color: #688268 transparent transparent transparent;
+}
+
+.profileIcon ul {
+  position: absolute;
+  border: 1px solid #ddd;
+  right: 0;
+  top: calc(100% + 10px);
+  width: max-content;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 99999;
+  box-shadow: -5px 3px 15px 1px #ddd;
+}
+
+.profileIcon ul li {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.profileIcon ul li:hover {
+  color: #688268;
+  background-color: #6882682d;
+}
+
 
 /* notification */
 
@@ -190,4 +226,26 @@ h2:after {
 .listnotif nav div a:not(:last-child) {
   border: 1px solid #ddd;
 
+}
+
+.notifIcon {
+  position: relative;
+  width: fit-content;
+}
+.notifIcon span {
+  position: absolute;
+  user-select: none;
+  height: 15px;
+  width: 15px;
+  background-color: #f00;
+  color: #fff;
+  font-size: 12px;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  z-index: 9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

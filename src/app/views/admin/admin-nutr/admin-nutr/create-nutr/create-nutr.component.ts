@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
@@ -17,18 +17,18 @@ export class CreateNutrComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
-    this.loadform = this.form.group({
-      firstname: ['',Validators.required],
-      lastname: ['',Validators.required],
-      email: ['',Validators.required,Validators.email],
-      phone: ['',Validators.required],
-      address: ['',Validators.required],
-      city: ['',Validators.required],
-      description: ['',Validators.required],
-      birth_date: ['',Validators.required],
-      role:this.role,
-      password: ['',Validators.required],
-      password_confirmation:['',Validators.required]
+    this.loadform =  new FormGroup({
+      "firstname": new FormControl(null,Validators.required),
+      "lastname": new FormControl(null,Validators.required),
+      "email":new FormControl(null, [Validators.required, Validators.email]),
+      "phone": new FormControl(null,Validators.required),
+      "address": new FormControl(null,Validators.required),
+      "city": new FormControl(null),
+      "description": new FormControl(null),
+      "birth_date": new FormControl(null),
+      "password": new FormControl(null),
+      "password_confirmation": new FormControl(null),
+      "role":new FormControl(this.role)
     })
 
     this.loadform.patchValue(this.data)

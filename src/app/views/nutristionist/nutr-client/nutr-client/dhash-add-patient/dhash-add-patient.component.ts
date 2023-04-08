@@ -15,7 +15,7 @@ import { AddClientComponent } from '../add-client/add-client.component';
 export class DhashAddPatientComponent implements OnInit{
 
   displayedColumns: string[] = ['id',
-    'email', 'phone','Gender','action'];
+    'email', 'phone','address','action'];
 
   dataSources!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;

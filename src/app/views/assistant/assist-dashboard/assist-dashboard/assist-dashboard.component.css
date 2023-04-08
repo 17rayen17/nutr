@@ -184,3 +184,53 @@ h2:after {
   border: 1px solid #ddd;
 
 }
+
+/* profileIcon */
+.profileIcon{
+  transform: translateY(-4px);
+  position: relative;
+}
+.profileIcon > i{
+  font-size: 33px;
+}
+
+.profileIcon > i::after {
+  content: "";
+  border: 6px solid #000;
+  border-color: #000 transparent transparent transparent;
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.profileIcon > i.active::after{
+  border-color: #688268 transparent transparent transparent;
+}
+
+.profileIcon ul {
+  position: absolute;
+  border: 1px solid #ddd;
+  right: 0;
+  top: calc(100% + 10px);
+  width: max-content;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 99999;
+  box-shadow: -5px 3px 15px 1px #ddd;
+}
+
+.profileIcon ul li {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.profileIcon ul li:hover {
+  color: #688268;
+  background-color: #6882682d;
+}

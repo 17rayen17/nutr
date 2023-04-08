@@ -9,6 +9,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NutrLayoutComponent } from './nutr-layout/nutr-layout.component';
 import { AssistantLayoutComponent } from './assistant-layout/assistant-layout.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 
 
 
@@ -17,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     AdminLayoutComponent,
     FrontLayoutComponent,
     NutrLayoutComponent,
-    AssistantLayoutComponent
+    AssistantLayoutComponent,
+    PatientLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     ToastrModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class LayoutModule { }

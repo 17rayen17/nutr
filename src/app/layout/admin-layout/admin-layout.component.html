@@ -2,9 +2,9 @@
   <div class="header">
     <img src="assets/Capture2.PNG" alt="logo" routerLink="/admin" style="cursor: pointer;">
     <img src="assets/pdp.jpg" alt="pdp" routerLink="/admin" style="cursor: pointer;">
-    <div class="name">
-      <h2>rayen andolsi</h2>
-      <p>exemple@gmail.com</p>
+    <div class="name" >
+      <h2>{{firstname}} {{lastname}}</h2>
+      <p>{{email}}</p>
     </div>
     <nav>
       <a [routerLink]="['admin-nutr']" routerLinkActive="active">nutritionist</a>

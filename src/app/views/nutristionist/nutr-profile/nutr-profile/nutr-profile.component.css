@@ -48,3 +48,9 @@
   color: #fff;
   border-radius: 8px;
 }
+
+/* rating*/
+ngb-rating{
+  color: gold;
+  font-size: 50px;
+}

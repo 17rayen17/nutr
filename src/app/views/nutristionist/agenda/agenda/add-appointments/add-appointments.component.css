@@ -62,7 +62,7 @@ input[type="text"]:focus {
   margin-bottom: 15px;
 }
 .dates div {
-  margin-bottom: 15px;
+  margin-bottom: -10px;
 }
 .dates div input {
   border-radius: 4px;
@@ -127,7 +127,8 @@ button{
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
 }
 
 .submit button {
@@ -147,4 +148,7 @@ button{
 
 .submit button.closeBtn {
   background-color: #777;
+}
+.submit button.deleteBtn{
+  background-color: #e42706;
 }

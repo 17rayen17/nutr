@@ -53,20 +53,24 @@ export class AddAppointmentsComponent implements OnInit {
     this.getpatientname()
 
     // this.loaddate.patchValue(this.data)
-    // console.log(this.data)
-    console.log(this.data.event.id)
+    // console.log(this.data.view.currentStart)
+    // console.log(this.data.event.id)
 
   }
 
+
   patient: any[] = []
   names: any[] = []
+  phone: any[] = []
   getpatientname() {
     this.crud.getpatient().subscribe((res: any) => {
       this.patient = res
 
       for (let i = 0; i < this.patient.length; i++) {
-        this.names.push(this.patient[i].name)
+        this.names.push(this.patient[i].firstname)
+        this.phone.push(this.patient[i].phone)
       }
+
 
       this.loaddate = this.form.group({
         title: '',
@@ -87,6 +91,8 @@ export class AddAppointmentsComponent implements OnInit {
 
     });
   }
+
+ 
 
   addappointment() {
     if (this.loaddate.valid) {
@@ -111,6 +117,11 @@ export class AddAppointmentsComponent implements OnInit {
     this.dialog.close()
   }
 
-
+  deleterdv() {
+    this.addappoint.deleterdv(this.data.event.id).subscribe(res => {
+      confirm('r u sure !!!')
+      this.dialog.close()
+    })
+  }
 
 }

@@ -1,0 +1,107 @@
+/* ------------------------ fiche patient---------------------------- */
+
+.formp {
+  padding: 20px;
+  width:  680px;
+  height: 93vh;
+  background-color: #d5e3b6;
+  margin: 30px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.formp h1 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.formp form {
+  display: flex;
+  gap: 10%;
+}
+
+.formp form .left-side,
+.formp form .right-side {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  text-align: center;
+}
+.formp form input[type="submit"] {
+  border: none;
+  width: 150px;
+  height: 35px;
+  background-color: #688268;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  margin: 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.formp form input[type="submit"]:hover {
+  filter: brightness(80%);
+  width: 300px;
+}
+.formp form .left-side input:not([type="submit"]),
+.formp form .right-side input:not([type="submit"]) {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  height: 35px;
+  outline: none;
+  border: 0px solid #688268;
+  padding: 0 15px;
+}
+
+.formp form .left-side input:not([type="submit"]):focus,
+.formp form .right-side input:not([type="submit"]):focus {
+  border: 1px solid #688268;
+}
+
+.formp form .choices .mychoices div label {
+  height: fit-content;
+  margin: 0;
+}
+.formp form .choices .mychoices{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 5px;
+}
+.formp form .choices .mychoices div {
+  color: #000;
+  margin: 0 5px;
+  border-radius: 8px;
+  padding: 0 5px;
+  display: flex;
+  background-color: #fff;
+  gap: 5px;
+}
+
+.formp form .choices .mychoices div * {
+  margin: 0;
+  height: 25px;
+  width: max-content;
+  display: flex;
+  color: #222;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.formp >button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #111;
+  font-size: 20px;
+  transition: 0.3s;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 15px;
+  transition: 0.3s;
+}
+.formp >button:hover{
+  transform: rotate(0.5turn);
+}

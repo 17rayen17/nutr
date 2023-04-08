@@ -17,9 +17,10 @@ import { LayoutModule } from './layout/layout.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthinterceptorInterceptor } from './services/authinterceptor.interceptor';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,7 @@ import { AuthinterceptorInterceptor } from './services/authinterceptor.intercept
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
     MatTooltipModule,
     FormsModule,
     MatButtonModule,

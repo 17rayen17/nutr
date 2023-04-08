@@ -5,17 +5,23 @@
   </div>
   <form (ngSubmit)="addappointment()" [formGroup]="loaddate">
     <div class="title d-flex flex-column">
-      <label for="title">title</label>
+      <label for="title">Title</label>
       <input type="text" id="title" placeholder="title" formControlName="title">
     </div>
     <label for="patient">Patient</label>
     <select class="form-select" id="patient" aria-label="Default select example" formControlName="name">
 
       <option *ngFor="let i of patient"
-        value="{{i.name}}" >
-        {{i.name}}</option>
+        value="{{i.firstname}}" >
+        {{i.firstname}} {{i.lastname}}</option>
 
     </select>
+    <div *ngIf="phone">
+      <ng-container *ngFor="let i of phone;let a = index">
+        <label for="">Phone</label>
+        <input class="form-control" type="text" value="{{phone[a]}}" disabled>
+      </ng-container>
+    </div>
     <div class="dates">
       <!---->
       <div class="d-flex flex-column">
@@ -39,8 +45,11 @@
       </div>
     </div>
     <div class="submit">
-      <button class="closeBtn" type="button" (click)="close()">Close</button>
+      <button *ngIf="!data" class="closeBtn" type="button" (click)="close()">Close</button>
       <button class="addBtn" type="submit">{{data?'update':'add'}}</button>
+      <button *ngIf="data" class="deleteBtn" type="button" (click)="deleterdv()">delete</button>
+
+
     </div>
   </form>
 </div>

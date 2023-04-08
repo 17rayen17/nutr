@@ -19,12 +19,12 @@ export class CreateAlimentComponent {
   ngOnInit(): void {
     this.loadform = this.form.group({
       famille: ['',Validators.required],
-      aliments: ['',Validators.required],
-      Calories: ['',Validators.required],
-      Proteines: ['',Validators.required],
-      glucides: ['',Validators.required],
-      lipides: ['',Validators.required],
-      quantite: ['',Validators.required]
+      nom: ['',Validators.required],
+      calorie: ['',Validators.required],
+      proteine: ['',Validators.required],
+      glucide: ['',Validators.required],
+      lipide: ['',Validators.required],
+      quantity: ['',Validators.required]
     })
 
     this.loadform.patchValue(this.data)

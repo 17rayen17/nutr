@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
 
@@ -10,39 +11,45 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
   styleUrls: ['./add-client.component.css']
 })
 export class AddClientComponent implements OnInit {
-  creatform!:FormGroup
+  creatform!: FormGroup
+  role='patient'
   constructor(private form: FormBuilder,
     private patient: CrudnutristionistService,
     private dialog: MatDialogRef<AddClientComponent>,
+    private _snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
     this.creatform = new FormGroup({
-      "name": new FormControl(null,Validators.required),
+      "firstname": new FormControl(null,Validators.required),
+      "lastname": new FormControl(null,Validators.required),
       "email":new FormControl(null, [Validators.required, Validators.email]),
-      "birthday": new FormControl(null,Validators.required),
-      "Gender": new FormControl('Male'),
-      "Language": new FormControl('English'),
       "phone": new FormControl(null,Validators.required),
       "address": new FormControl(null,Validators.required),
-      "medicalCondition": new FormControl(null),
-      "Caloric": new FormControl(null),
-      "Idealweight": new FormControl(null),
-      "Weight": new FormControl(null),
-      "Height": new FormControl(null),
-      "Waist": new FormControl(null),
-      "Physical_activity":new FormControl('1'),
+      "city": new FormControl(null),
+      "description": new FormControl(null),
+      "birth_date": new FormControl(null),
+      "password": new FormControl(null),
+      "password_confirmation": new FormControl(null),
+      "role":new FormControl(this.role)
     })
     this.creatform.patchValue(this.data)
 
   }
 
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  durationInSeconds = 1.5;
   onaddCilent() {
     if (this.creatform.valid) {
       if (this.data) {
 
         this.patient.updatepatient(this.data.id,this.creatform.value).subscribe(res => {
-          alert('successfully update')
+          this._snackBar.open('successfully Update', 'Done', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: this.durationInSeconds * 1000
+          });
           this.dialog.close()
         }, err => {
           alert('INVALID')
@@ -51,7 +58,11 @@ export class AddClientComponent implements OnInit {
 
       } else {
         this.patient.createpatient(this.creatform.value).subscribe(res => {
-          alert('successfully create')
+          this._snackBar.open('successfully Created Patient', 'Done', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+            duration: this.durationInSeconds * 1000
+          });
           this.dialog.close()
         }, err => {
           alert('INVALID')

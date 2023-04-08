@@ -1,0 +1,154 @@
+.contain {
+  position: relative;
+}
+select{
+margin-bottom: 15px;
+}
+
+.contain > button {
+  position: absolute !important;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  transition: 0.3s;
+}
+.contain > button:hover {
+  transform: rotate(0.5turn);
+}
+
+.header {
+  padding: 15px 20px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+  color:#688268;
+  margin: 0;
+}
+
+form {
+  padding: 20px;
+}
+
+form .title {
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 17px;
+}
+
+input[type="text"] {
+  padding: 5px 15px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ddd;
+}
+
+input[type="text"]:focus {
+  border: 2px solid #777;
+}
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+  gap: 10%;
+  margin-bottom: 15px;
+}
+.dates div {
+  margin-bottom: 15px;
+}
+.dates div input {
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 5px 15px;
+  text-align: center;
+  font-size: 18px;
+}
+.dates div input:focus {
+  border: 1px solid #333;
+}
+
+button{
+  margin: 5px;
+}
+.color div {
+  display: flex;
+  position: absolute;
+  width: fit-content;
+}
+.color div span {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.color div span:hover {
+  filter: brightness(60%);
+}
+.color div span.choosed{
+  order: -1;
+  z-index: 5;
+}
+.color div span:nth-child(1) {
+  background-color: #0084ff;
+}
+.color div span:nth-child(2) {
+  background-color: #ff3c00;
+}
+.color div span:nth-child(3) {
+  background-color: #5ace69;
+}
+.color div span:nth-child(4) {
+  background-color: #9740d1;
+}
+.color div span:nth-child(5) {
+  background-color: #d2d42d;
+}
+
+.color div:hover span {
+  position: relative;
+  margin-right: 5px;
+}
+
+.submit {
+  padding: 0 20px;
+  position: absolute;
+  bottom: -130px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.submit button {
+  outline: none;
+  border: none;
+  background-color: #688268;
+  padding: 10px 25px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.submit button:hover {
+  filter: brightness(80%);
+}
+
+.submit button.closeBtn {
+  background-color: #777;
+}
+.submit button.deleteBtn{
+  background-color: #e42706;
+}

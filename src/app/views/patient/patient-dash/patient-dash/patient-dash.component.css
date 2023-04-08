@@ -1,0 +1,221 @@
+.globalpatient {
+  min-height: 100vh;
+}
+.globalpatient .profilepatient .datapatient {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.globalpatient .profilepatient .fiche{
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  width: 400px;
+  height: 100vh;
+  right: 0;
+  transform: translateX(100%);
+  transition: 0.6s;
+}
+.globalpatient .profilepatient .fiche.active {
+  transform: translateX(0);
+}
+.globalpatient .profilepatient .fiche > button {
+  position: absolute;
+  z-index: 999;
+  top: 80px;
+  border: none;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 12px 0 0 12px;
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.globalpatient .profilepatient .fiche.active > button i {
+  transform: rotate(180deg);
+}
+
+.globalpatient .profilepatient .datapatient .bgpatient {
+  z-index: -1;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+.globalpatient .profilepatient .datapatient .pdp {
+  position: absolute;
+  left: 100px;
+  top: 200px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #688268;
+}
+.globalpatient .profilepatient .datapatient div {
+  position: relative;
+  margin-left: 260px;
+  padding: 10px;
+}
+.globalpatient .profilepatient .datapatient div * {
+  margin: 0;
+  top: 0;
+}
+
+.globalpatient .profilepatient .datapatient div button {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  padding: 5px;
+  border: none;
+  background-color: #688268;
+  color: #fff;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.globalpatient .profilepatient .datapatient div button:hover {
+  filter: brightness(70%);
+}
+
+.globalpatient .profilepatient .nutrition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+}
+
+.globalpatient .profilepatient .nutrition .nutrition-card {
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  width: 380px;
+  background-color: #eee;
+  cursor: pointer;
+  padding-right: 15px;
+  transition: 0.3s;
+  margin-bottom: 50px;
+}
+.globalpatient .profilepatient .nutrition .nutrition-card div {
+  padding-left: 10px;
+}
+.globalpatient .profilepatient .nutrition .nutrition-card div * {
+  padding: 0;
+  margin: 0;
+}
+
+.globalpatient .profilepatient .nutrition .nutrition-card div h3 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.globalpatient .profilepatient .nutrition .nutrition-card div a {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: #688268;
+  transition: 0.2s;
+}
+.globalpatient .profilepatient .nutrition .nutrition-card div a:hover {
+  color: #4e614e;
+}
+.globalpatient .profilepatient .nutrition .nutrition-card:hover {
+  box-shadow: 0 0 20px 1px #0000008e;
+}
+
+.globalpatient .profilepatient .doctor {
+  padding: 20px;
+  margin-bottom: 50px;
+}
+.globalpatient .profilepatient .doctor .doctor_profile {
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  color: #000;
+  text-decoration: none;
+  width: fit-content;
+  border-radius: 8px;
+}
+.globalpatient .profilepatient .doctor .doctor_profile * {
+  padding: 0;
+  margin: 0;
+}
+.globalpatient .profilepatient .doctor .doctor_profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #688268;
+}
+
+.globalpatient .profilepatient .doctor .doctor_profile div h3 {
+  font-weight: 700;
+}
+
+.globalpatient .profilepatient .doctor .doctor_profile div span {
+  font-size: 40px;
+}
+.globalpatient .profilepatient .doctor .doctor_profile div span > i {
+  color: #FFB81C;
+}
+
+/* ----------stat--------- */
+.globalpatient .profilepatient .progress_p {
+  width: 100%;
+  padding: 20px;
+  height: 450px;
+  background-color: transparent;
+  margin-bottom: 250px !important;
+}
+.globalpatient .profilepatient .progress_p h2 {
+ color: #688268;
+}
+.cards{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.cards .c {
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  transition: 0.4s;
+  animation: action 0.9s ease 0s backwards alternate;
+}
+
+.cards .c * {
+  cursor: default;
+}
+
+.cards .c  h4{
+  font-size: 20px;
+  color: #777;
+}
+.cards .c  span{
+  font-size: 30px;
+  font-weight: 600;
+  color: #688268;
+}
+
+.cards .c:hover {
+  transform: translateY(-15px);
+}
+
+canvas{
+  width: 1000px !important;
+  height: 450px !important;
+}
+
+
+@keyframes action {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

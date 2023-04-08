@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthloginService } from 'src/app/services/authlogin.service';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
 @Component({
@@ -8,16 +9,18 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
 })
 export class ProfileAdminComponent implements OnInit {
 
-  constructor(private crud : CrudnutristionistService) { }
+  constructor(private crud: CrudnutristionistService,
+  private auth : AuthloginService) { }
 
 ngOnInit(): void {
   this.getnutritionist()
   this.getassist()
+  this.getme()
 }
 
 nutritionist: any[] = []
   getnutritionist() {
-    this.crud.getnutr().subscribe(res => {
+    this.crud.getallnutr().subscribe(res => {
       this.nutritionist=res
     })
   }
@@ -25,6 +28,15 @@ nutritionist: any[] = []
   getassist() {
     this.crud.getassist().subscribe(res => {
       this.assistant=res
+    })
+  }
+  firstname: any[] = []
+  email:any[]=[]
+  getme() {
+    this.auth.getme().subscribe(res => {
+      this.firstname = res.firstname
+      this.email=res.email
+
     })
   }
 

@@ -14,7 +14,7 @@ import { CreateAlimentComponent } from './create-aliment/create-aliment.componen
 export class AlimantComponent implements OnInit {
   istableau = false
   displayedColumns: string[] = ['id',
-    'famille', 'Calories','Proteines','quantite','action'];
+    'famille', 'calorie','proteine','quantity','action'];
 
     dataSource!: MatTableDataSource<any>;
     @ViewChild(MatPaginator) paginator!: MatPaginator;

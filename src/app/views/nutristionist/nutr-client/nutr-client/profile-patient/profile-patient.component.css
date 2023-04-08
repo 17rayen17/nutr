@@ -156,11 +156,12 @@ section{
   width: 100%;
 }
 
-/* ---------------------------------------------------------------------- */
+/* ------------------------ fiche patient---------------------------- */
 
 .formp {
   padding: 20px;
   width: 100%;
+  height: 93vh;
   background-color: #d5e3b6;
   margin: 30px;
   border-radius: 12px;
@@ -192,9 +193,15 @@ section{
   color: #fff;
   position: absolute;
   left: 50%;
-  bottom: -15px;
+  bottom: 0px;
   transform: translateX(-50%);
   margin: 20px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.formp form input[type="submit"]:hover {
+  filter: brightness(80%);
+  width: 300px;
 }
 .formp form .left-side input:not([type="submit"]),
 .formp form .right-side input:not([type="submit"]) {
@@ -240,3 +247,150 @@ section{
   align-items: center;
   z-index: 999;
 }
+.formp >button{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #111;
+  font-size: 20px;
+  transition: 0.3s;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 15px;
+  transition: 0.3s;
+}
+.formp >button:hover{
+  transform: rotate(0.5turn);
+}
+
+
+/* =========== note ===========*/
+
+.note {
+  background-color: #a2bea2;
+  width: fit-content;
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 99999999;
+  border-radius: 12px;
+  color: #111;
+  box-shadow: 0 0 15px 3px #11111167;
+  overflow: hidden;
+}
+
+.note .top {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.note .top span {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 18px;
+}
+.note .top span i {
+  font-size: 25px;
+}
+.note .top button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #111;
+  font-size: 20px;
+  transition: 0.3s;
+  width: fit-content;
+  height: fit-content;
+}
+.note .top button:hover {
+  transform: rotate(0.5turn);
+}
+.note .mid::-webkit-scrollbar {
+  width: 0;
+}
+.note .mid {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 0;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+.note .mid li {
+  margin: 0;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.note .mid li div.date {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #555;
+}
+.note .mid li div.task {
+  max-width: 100%;
+  padding-right: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+}
+.note .mid li div.task span {
+  max-width: 75%;
+  color: #000;
+  background-color: #c0d1c0;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.note .mid li div.task button{
+  border: none;
+  height: 100%;
+  background-color: transparent;
+  font-size: 18px;
+  color: #f72b10;
+  transition: 0.3s;
+}
+.note .mid li div.task button:hover {
+  filter: brightness(90%);
+}
+.note .down {
+  position: relative;
+  padding: 5px;
+}
+.note .down textarea {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 42px;
+  resize: none;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 5px;
+}
+.note button.save {
+  position: relative;
+  width: 95%;
+  height: 35px;
+  font-size: 17px;
+  border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  background-color: #688268;
+  color: #fff;
+  text-align: center;
+  transition: 0.3s;
+}
+.note button.save:hover {
+  transform: translateX(-50%) scale(1.35);
+}
+/* ===========// note //===========*/

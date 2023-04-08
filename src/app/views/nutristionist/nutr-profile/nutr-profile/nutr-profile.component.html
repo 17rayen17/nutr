@@ -18,16 +18,14 @@
     <h3>reviews</h3>
     <!-- ============== -->
     <div class="box">
-      <!---->
+      <!--<ngb-rating></ngb-rating>-->
       <div>
-        <div class="stars">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <p>from 20 people</p>
+        <h1>INPUT</h1>
+        <ngb-rating [max]="5" (click)="getvalue()" [formControl]="rating"></ngb-rating>
+        <h1>OUTPUT</h1>
+      <ngb-rating [max]="5" [rate]="finalrating" [readonly]="true"></ngb-rating>
+        <h2>{{finalrating}}</h2>
+        <p>from {{ratincount}} people</p>
       </div>
       <!---->
       <div class="comments">

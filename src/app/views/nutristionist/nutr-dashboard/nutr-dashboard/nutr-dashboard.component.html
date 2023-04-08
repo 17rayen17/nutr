@@ -1,25 +1,35 @@
 <div class="profile">
   <div>
-
-    <i class="fa-solid fa-bell fa-lg notifbtn" data-notif="99"></i>
-    <div class="d-none listnotif" >
+    <div class="notifIcon">
+      <i
+        (click)="onclick()"
+        class="fa-regular fa-bell fa-lg notifbtn"
+        data-notif="99"
+        matTooltip="Notifications"
+        #tooltip="matTooltip"
+      ></i>
+      <span *ngIf="data.length != 0 && click == false">{{ data.length }}</span>
+    </div>
+    <div class="d-none listnotif">
       <nav>
         <div>
           <a *ngFor="let i of data">
-            {{i.title}}
-            <span>start at: {{i.start}}</span>
+            {{ i.title }}
+            <span>start at :{{i.start}} {{ i.end }}</span>
           </a>
         </div>
       </nav>
     </div>
-    <div id="holdBtn">
-      <i class="fa-regular fa-circle-user fa-lg user"></i>
-      <ul id="holdList" class="holdList hide">
-
-        <li><a href="">profile</a></li>
-        <li><a href="">Logout</a></li>
+    <!--profile icon-->
+    <div class="profileIcon">
+      <i class="fa-regular fa-circle-user fa-2x active" Clickoutside (clickOutside)="appClickoutside()" (click)="toggleprofile()"></i>
+      <ul *ngIf="isoppend">
+        <li [routerLink]="['nutr-profile']"><i class="fa-regular fa-user"></i>Profile</li>
+        <li><i class="fa-solid fa-credit-card"></i>My Payments</li>
+        <li (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
       </ul>
     </div>
+
   </div>
 </div>
 <!--/////////////////////////////////////////////-->
@@ -31,7 +41,7 @@
       <i class="fa-solid fa-users"></i>
       <span>Patient</span>
     </div>
-    <span class="nb">{{patients.length}}</span>
+    <span class="nb">{{ patients.length }}</span>
     <div class="down">
       <span>View Details</span>
       <i class="fa-solid fa-angle-right"></i>
@@ -54,7 +64,7 @@
       <i class="fa-solid fa-user-pen"></i>
       <span>Assistant</span>
     </div>
-    <span class="nb">{{assistant.length}}</span>
+    <span class="nb">{{ assistant.length }}</span>
     <div class="down">
       <span>View Details</span>
       <i class="fa-solid fa-angle-right"></i>
@@ -73,7 +83,6 @@
   </a>
   <!-- ================================== -->
 </div>
-
 
 <!--
 <a href=""><i class="fa-solid fa-leaf"></i><span>Nutristion</span></a>

@@ -1,12 +1,20 @@
 <div id="calendar">
-  <full-calendar [options]="calendarOptions" (eventRender)="handleEventRender($event)">
+  <full-calendar [options]="calendarOptions" >
     <ng-template #eventContent let-arg >
-      <div class="temp">
-      <b>{{arg.timeText}}</b>
-      <i>{{arg.event.title}}</i>
-      <i class="start">{{arg.event.start}}</i>
+      <div class="temp" >
+        <b style="color:black">TITLE : {{arg.event.title}} </b>
+        <br>
+        <b style="color:black">PATIENT NAME :<p style="color: aliceblue;">{{arg.event.extendedProps.name}}</p> </b>
+      <li>
+        <i class="start">start at : {{arg.event.start | date:'yyyy-MM-dd'}}</i>
+      </li>
+      <li>
+        <i>exactly at: {{arg.event.extendedProps.endStr}}PM</i>
+      </li>
+    <!--<button (click)="logEvent(arg.event)">Log Event</button>-->
     </div>
     </ng-template>
   </full-calendar>
 </div>
+
 

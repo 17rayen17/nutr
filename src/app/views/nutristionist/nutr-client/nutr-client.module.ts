@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfilePatientComponent } from './nutr-client/profile-patient/profile-patient.component';
 import { DhashAddPatientComponent } from './nutr-client/dhash-add-patient/dhash-add-patient.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 import { MatInputModule } from '@angular/material/input';
@@ -20,6 +23,8 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { StatistiquePatientComponent } from './nutr-client/statistique-patient/statistique-patient.component';
+import { FichepatientComponent } from './nutr-client/profile-patient/fichepatient/fichepatient.component';
+import { FicheconsultationComponent } from './nutr-client/profile-patient/ficheconsultation/ficheconsultation.component';
 
 
 
@@ -31,7 +36,9 @@ import { StatistiquePatientComponent } from './nutr-client/statistique-patient/s
     AddClientComponent,
     ProfilePatientComponent,
     DhashAddPatientComponent,
-    StatistiquePatientComponent
+    StatistiquePatientComponent,
+    FichepatientComponent,
+    FicheconsultationComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +53,10 @@ import { StatistiquePatientComponent } from './nutr-client/statistique-patient/s
     MatPaginatorModule,
     MatSortModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    DragDropModule
   ]
 })
 export class NutrClientModule { }

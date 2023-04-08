@@ -3,29 +3,46 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 import { StatistiquePatientComponent } from '../statistique-patient/statistique-patient.component';
+import { FormControl, FormGroup } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-profile-patient',
   templateUrl: './profile-patient.component.html',
-  styleUrls: ['./profile-patient.component.css']
+  styleUrls: ['./profile-patient.component.css'],
+  providers:[DatePipe]
 })
 export class ProfilePatientComponent implements OnInit {
-  affiche = false
+  afficheFichePatient = false
+  afficheConsultation = false
   id!: number
-  events:any[]=[]
+  events: any[] = []
+  noteform!: FormGroup
+  date: Date = new Date()
+  formattedDate!: string;
+
   constructor(private route: ActivatedRoute,
     private crud: CrudnutristionistService,
+    private datePipe: DatePipe,
     private dialog: MatDialog) { }
 
-  onchange() {
-    if (this.affiche == false) {
-      this.affiche = true
+  openFichePatient(event : Event) {
+      console.log(event.target)
+    if (this.afficheFichePatient == false || this.afficheConsultation == false) {
+      this.afficheFichePatient = true
+      this.afficheConsultation = false
     } else {
-      this.affiche = false
+      this.afficheFichePatient = false
+      this.afficheConsultation = true
     }
-  }
+    }
+
+
+
 
   ngOnInit(): void {
+    this.formattedDate = this.datePipe.transform(this.date, 'EEEE, d MMMM yyyy', 'fr') ?? '';
+    this.getnotes()
 
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = +params.get('id')!;
@@ -55,13 +72,41 @@ export class ProfilePatientComponent implements OnInit {
     }
 
   };
-});
+    });
+
+    this.noteform = new FormGroup({
+      "note":new FormControl(null)
+    })
   }
 
   openstat() {
     const dialogRef = this.dialog.open(StatistiquePatientComponent);
     dialogRef.afterClosed().subscribe(val => {
 
+    })
+  }
+
+  opnote=false
+  openNote() {
+    this.opnote = !this.opnote
+  }
+
+  savenote() {
+    this.crud.createnote(this.noteform.value).subscribe(res => {
+      this.getnotes()
+    })
+  }
+
+  notes:any[]= []
+  getnotes() {
+    this.crud.getnote().subscribe(res => {
+      this.notes = res
+    })
+  }
+
+  deleteNote(id : number) {
+    this.crud.deletenote(id).subscribe(res => {
+      this.getnotes()
     })
   }
 

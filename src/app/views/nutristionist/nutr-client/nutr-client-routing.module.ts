@@ -5,12 +5,18 @@ import { DhashAddPatientComponent } from './nutr-client/dhash-add-patient/dhash-
 import { NutrClientComponent } from './nutr-client/nutr-client.component';
 import { ProfilePatientComponent } from './nutr-client/profile-patient/profile-patient.component';
 import { StatistiquePatientComponent } from './nutr-client/statistique-patient/statistique-patient.component';
+import { FichepatientComponent } from './nutr-client/profile-patient/fichepatient/fichepatient.component';
+import { FicheconsultationComponent } from './nutr-client/profile-patient/ficheconsultation/ficheconsultation.component';
 
 const routes: Routes = [
   {
     path: '', component: NutrClientComponent, children: [
       { path:'',component:DhashAddPatientComponent},
-      { path: 'profile-patient/:id', component: ProfilePatientComponent},
+      {
+        path: 'profile-patient/:id', component: ProfilePatientComponent, children: [
+        {path:'fichepatient',component:FichepatientComponent},
+        {path:'ficheconsulation',component:FicheconsultationComponent},
+      ]},
       { path:'statistique',component:StatistiquePatientComponent },
     ]
   },

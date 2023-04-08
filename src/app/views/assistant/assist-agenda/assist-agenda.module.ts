@@ -7,14 +7,17 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AssistAgendaRoutingModule } from './assist-agenda-routing.module';
 import { AssistAgendaComponent } from './assist-agenda/assist-agenda.component';
+import { AddAgendaAssistComponent } from './assist-agenda/add-agenda-assist/add-agenda-assist.component';
 
 
 @NgModule({
   declarations: [
-    AssistAgendaComponent
+    AssistAgendaComponent,
+    AddAgendaAssistComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { AssistAgendaComponent } from './assist-agenda/assist-agenda.component';
     FormsModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class AssistAgendaModule { }

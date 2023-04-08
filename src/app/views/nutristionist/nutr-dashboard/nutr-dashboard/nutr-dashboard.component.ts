@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { AddAppointmentsService } from 'src/app/services/add-appointments.service';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nutr-dashboard',
@@ -8,14 +10,15 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
   styleUrls: ['./nutr-dashboard.component.css']
 })
 export class NutrDashboardComponent implements OnInit {
-  constructor(private appoint:AddAppointmentsService,private crud :CrudnutristionistService){}
+
+  constructor(private appoint: AddAppointmentsService,
+    private crud: CrudnutristionistService,
+    private toastr: ToastrService,
+    private route : Router) { }
 
   ngOnInit(): void {
-    const holdBtn = document.getElementById("holdBtn") as HTMLButtonElement;
-    const holdList = document.getElementById("holdList") as HTMLElement;
-    holdBtn.onclick = function () {
-      holdList?.classList.toggle("hide");
-    };
+    this.toggleprofile()
+    this.appClickoutside()
 
     const notifbtn = document.querySelector('.notifbtn') as HTMLButtonElement;
     const listnotif = document.querySelector('.listnotif') as HTMLElement;
@@ -34,15 +37,36 @@ export class NutrDashboardComponent implements OnInit {
     this.getapoint()
     this.getpatient()
     this.getassist()
-
+    this.data
   }
 
-  data:any[] = []
+  data: any[] = []
   getapoint() {
-    this.appoint.getrdv().subscribe((res : any) => {
-      this.data = res
-      console.log(this.data)
-    })
+    const currentDate = new Date(); // current date
+    const twentyFourHoursLater = new Date(currentDate.getTime() + (24 * 60 * 60 * 1000)); // date 24 hours later
+    this.appoint.getrdv().subscribe((res: any) => {
+      this.data = res.filter((appt: any) => {
+        const apptStartDateTime = new Date(appt.start + ' ' + appt.end);
+        return apptStartDateTime >= currentDate && apptStartDateTime <= twentyFourHoursLater;
+
+      });
+      console.log(this.data);
+      const apptTimes = JSON.parse(JSON.stringify(this.data.map(appt => ({ start: appt.start, end: appt.end }))));
+      const apptTimesString = apptTimes.map((appt : any) => `<li>${appt.start} - ${appt.end}</li>`).join('');
+      // console.log(apptTimesString.length)
+      if (apptTimesString.length != 0) {
+        this.toastr.warning(
+          `<div class="toast-message">
+            <p><strong>Upcoming Appointments:</strong></p>
+            <ul>satrt at${apptTimesString}</ul>
+          </div>`,
+          'warning',
+          { enableHtml: true, closeButton: true, timeOut: 5000 }
+        );
+      }
+
+
+    });
   }
 
   patients:any[]=[]
@@ -57,6 +81,38 @@ export class NutrDashboardComponent implements OnInit {
     this.crud.getassist().subscribe(res => {
       this.assistant=res
     })
+  }
+  isoppend=false
+  toggleprofile() {
+    this.isoppend = !this.isoppend
+    const flesh = document.querySelector('i.fa-regular.fa-circle-user.fa-2x')
+    if (this.isoppend) {
+      flesh?.classList.add('active')
+    } else {
+      flesh?.classList.remove('active')
+    }
+  }
+
+  appClickoutside() {
+    this.isoppend = false
+    const flesh = document.querySelector('i.fa-regular.fa-circle-user.fa-2x')
+    if (this.isoppend) {
+      flesh?.classList.add('active')
+    } else {
+      flesh?.classList.remove('active')
+    }
+  }
+
+  logout() {
+    sessionStorage.clear()
+    this.route.navigate(['/'])
+  }
+
+  click = false
+  onclick() {
+    if (this.click === false) {
+      this.click = !this.click
+    }
   }
 }
 

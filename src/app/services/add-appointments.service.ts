@@ -16,8 +16,12 @@ export class AddAppointmentsService {
   addrdv(data: any): Observable<any>{
     return this.http.post('http://localhost:3000/appointement',data)
   }
+  deleterdv(id: number): Observable<any>{
+    return this.http.delete('http://localhost:3000/appointement/'+id)
+  }
   updateRdv(id: number, data: any): Observable<any>{
     return this.http.put(`http://localhost:3000/appointement/${id}`,data)
   }
 
 }
+

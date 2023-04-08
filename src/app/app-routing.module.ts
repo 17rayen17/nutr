@@ -6,6 +6,7 @@ import { AssistantLayoutComponent } from './layout/assistant-layout/assistant-la
 import { FrontLayoutComponent } from './layout/front-layout/front-layout.component';
 import { NutrLayoutComponent } from './layout/nutr-layout/nutr-layout.component';
 import { HomeComponent } from './views/front/home/home/home.component';
+import { PatientLayoutComponent } from './layout/patient-layout/patient-layout.component';
 
 const routes: Routes = [
   {
@@ -33,11 +34,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'assistant', component: AssistantLayoutComponent, children: [
+    path: 'assistant', component: AssistantLayoutComponent,canActivate:[AuthGuard], children: [
       { path: '', loadChildren: () => import('./views/assistant/assist-dashboard/assist-dashboard.module').then(m => m.AssistDAshboardModule) },
       { path: 'assist-agenda', loadChildren: () => import('./views/assistant/assist-agenda/assist-agenda.module').then(m => m.AssistAgendaModule) },
       { path: 'assist-patient', loadChildren: () => import('./views/assistant/assist-patient/assist-patient.module').then(m => m.AssistPatientModule) },
       { path: 'assist-profile', loadChildren: () => import('./views/assistant/assist-profile/assist-profile.module').then(m => m.AssistProfileModule) },
+    ]
+  },
+  {
+    path: 'patient', component: PatientLayoutComponent,canActivate:[AuthGuard], children: [
+    {path:'',loadChildren:()=>import('./views/patient/patient-dash/patient-dash.module').then(m => m.PatientDashModule)},
   ]},
 
   {path:'**',redirectTo:'/'}

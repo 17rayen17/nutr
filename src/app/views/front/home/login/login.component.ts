@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import {  Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AuthloginService } from 'src/app/services/authlogin.service';
 
 @Component({
@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private formb: FormBuilder, private auth: AuthloginService, private router: Router) {
+  constructor(private formb: FormBuilder,
+    private auth: AuthloginService,
+    private router: Router,
+    private _snackBar: MatSnackBar) {
     sessionStorage.clear();
 
   }
@@ -30,22 +33,55 @@ export class LoginComponent implements OnInit {
 
   }
   dataR: any;
-
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  durationInSeconds = 1;
   login() {
     if (this.loginForm.valid) {
       this.auth.logincode(this.loginForm.value).subscribe(res => {
         this.dataR = res
+        // admin login ---------------------------
           if (this.dataR.user.role == "admin") {
             sessionStorage.setItem('token', this.dataR.access_token)
             sessionStorage.setItem('role', this.dataR.user.role)
-            alert('successfully admin login')
+            this._snackBar.open('successfully admin login', 'Done', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+              duration: this.durationInSeconds * 1000,
+            });
             this.router.navigate(['/admin'])
 
+            // nutritionist login ---------------------------
           } else if (this.dataR.user.role == "nutritionist") {
             sessionStorage.setItem('token', this.dataR.access_token)
             sessionStorage.setItem('role', this.dataR.user.role)
+            this._snackBar.open('successfully nutritionist login', 'Done', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+              duration: this.durationInSeconds * 1000,
+            });
             this.router.navigate(['/nutritionist'])
-            alert('successfully nutritionist login')
+
+            // assistant login ---------------------------
+          } else if (this.dataR.user.role == "assistant") {
+            sessionStorage.setItem('token', this.dataR.access_token);
+            sessionStorage.setItem('role', this.dataR.user.role);
+            this._snackBar.open('successfully assistant login', 'Done', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+              duration: this.durationInSeconds * 1000,
+            });
+            this.router.navigate(['/assistant'])
+            // patient login ---------------------------
+          } else if (this.dataR.user.role == "patient") {
+            sessionStorage.setItem('token', this.dataR.access_token);
+            sessionStorage.setItem('role', this.dataR.user.role);
+            this._snackBar.open('successfully assistant login', 'Done', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+              duration: this.durationInSeconds * 1000,
+            });
+            this.router.navigate(['/patient'])
           }
 
 

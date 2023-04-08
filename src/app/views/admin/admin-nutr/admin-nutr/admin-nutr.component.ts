@@ -12,7 +12,7 @@ import { CreateNutrComponent } from './create-nutr/create-nutr.component';
   styleUrls: ['./admin-nutr.component.css']
 })
 export class AdminNutrComponent {
-  displayedColumns: string[] = ['id','username','email', 'phone','action'];
+  displayedColumns: string[] = ['id','firstname','email', 'phone','action'];
 
 dataSource!: MatTableDataSource<any>;
 @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -26,7 +26,7 @@ ngOnInit(): void {
 }
 
 getDATA() {
-  this.nutr.getnutr().subscribe({
+  this.nutr.getallnutr().subscribe({
     next: (res: any) => {
       // console.log(res)
       this.dataSource = new MatTableDataSource(res)
@@ -55,10 +55,10 @@ applyFilter(event: Event) {
 
 deletenutr(id : any) {
   this.nutr.deletenut(id).subscribe(
-     (res) => {
+    (res) => {
     this.getDATA()
   },
-   (err) => {
+  (err) => {
     console.log(err)
   })
 }

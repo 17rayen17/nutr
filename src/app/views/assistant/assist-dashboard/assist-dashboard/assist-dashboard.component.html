@@ -1,23 +1,11 @@
 <div class="profile">
   <div>
-
-    <i class="fa-solid fa-bell fa-lg notifbtn" data-notif="99"></i>
-    <div class="d-none listnotif" >
-      <nav>
-        <div>
-          <a >
-            date
-            <span>2023</span>
-          </a>
-        </div>
-      </nav>
-    </div>
-    <div id="holdBtn">
-      <i class="fa-regular fa-circle-user fa-lg user"></i>
-      <ul id="holdList" class="holdList hide">
-
-        <li><a href="">profile</a></li>
-        <li><a href="">Logout</a></li>
+    <div class="profileIcon">
+      <i class="fa-regular fa-circle-user fa-2x active" appClickoutside (clickOutside)="appClickoutside()" (click)="toggleprofile()"></i>
+      <ul *ngIf="isoppend">
+        <li [routerLink]="['assist-profile']"><i class="fa-regular fa-user"></i>Profile</li>
+        <li><i class="fa-solid fa-credit-card"></i>My Payments</li>
+        <li (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Logout</li>
       </ul>
     </div>
   </div>
