@@ -4,6 +4,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AddAppointmentsService } from 'src/app/services/add-appointments.service';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 import { DatePipe } from '@angular/common';
+import { el } from '@fullcalendar/core/internal-common';
 
 
 interface ClickableElement extends HTMLElement {
@@ -50,6 +51,8 @@ export class AddAppointmentsComponent implements OnInit {
       colors: ''
     })
 
+
+
     this.getpatientname()
 
     // this.loaddate.patchValue(this.data)
@@ -62,6 +65,7 @@ export class AddAppointmentsComponent implements OnInit {
   patient: any[] = []
   names: any[] = []
   phone: any[] = []
+  selectedPatient:any
   getpatientname() {
     this.crud.getpatient().subscribe((res: any) => {
       this.patient = res
@@ -72,6 +76,10 @@ export class AddAppointmentsComponent implements OnInit {
       }
 
 
+
+
+
+
       this.loaddate = this.form.group({
         title: '',
         name: this.names[0],
@@ -80,19 +88,35 @@ export class AddAppointmentsComponent implements OnInit {
         colors: ''
       });
 
-      this.loaddate.patchValue({
-        title: this.data.event._def.title,
-        name:  this.data.event._def.extendedProps.name,
-        start: this.data.event.startStr,
-        end: this.data.event._def.extendedProps.endStr,
-        colors: this.data.event.backgroundColor
-      })
 
+      if (this.data && this.data.event) {
+        this.loaddate.patchValue({
+          title: this.data.event._def.title,
+          name: this.data.event._def.extendedProps.name,
+          start: this.data.event.startStr,
+          end: this.data.event._def.extendedProps.endStr,
+          colors: this.data.event.backgroundColor
+        })
+      }
+
+      if (this.loaddate.value.name) {
+        this.selectedPatient = this.patient[0].phone
+      }
+
+      this.patient.find(pat => {
+        const valuename = this.loaddate.get('name')
+        valuename?.valueChanges.subscribe((res : any) => {
+          // console.log(res)
+          if ((pat.firstname === res) === true) {
+            this.selectedPatient=pat.phone
+          }
+        })
+      })
 
     });
   }
 
- 
+
 
   addappointment() {
     if (this.loaddate.valid) {

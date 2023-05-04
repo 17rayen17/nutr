@@ -13,7 +13,11 @@ import { ProfilePatientComponent } from './nutr-client/profile-patient/profile-p
 import { DhashAddPatientComponent } from './nutr-client/dhash-add-patient/dhash-add-patient.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
+
+
 
 
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +29,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { StatistiquePatientComponent } from './nutr-client/statistique-patient/statistique-patient.component';
 import { FichepatientComponent } from './nutr-client/profile-patient/fichepatient/fichepatient.component';
 import { FicheconsultationComponent } from './nutr-client/profile-patient/ficheconsultation/ficheconsultation.component';
+import { FicheRegimeComponent } from './nutr-client/profile-patient/fiche-regime/fiche-regime.component';
 
 
 
@@ -38,7 +43,8 @@ import { FicheconsultationComponent } from './nutr-client/profile-patient/fichec
     DhashAddPatientComponent,
     StatistiquePatientComponent,
     FichepatientComponent,
-    FicheconsultationComponent
+    FicheconsultationComponent,
+    FicheRegimeComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +62,9 @@ import { FicheconsultationComponent } from './nutr-client/profile-patient/fichec
     MatIconModule,
     MatTooltipModule,
     MatSnackBarModule,
-    DragDropModule
+    DragDropModule,
+    MatAutocompleteModule,
+    FormsModule
   ]
 })
 export class NutrClientModule { }

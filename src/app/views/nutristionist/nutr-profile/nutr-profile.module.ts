@@ -7,12 +7,16 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthinterceptorInterceptor } from 'src/app/services/authinterceptor.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ;
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditProfileComponent } from './nutr-profile/edit-profile/edit-profile.component';
+import { ProfileComponent } from './nutr-profile/profile/profile.component' ;
 
 
 @NgModule({
   declarations: [
-    NutrProfileComponent
+    NutrProfileComponent,
+    EditProfileComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

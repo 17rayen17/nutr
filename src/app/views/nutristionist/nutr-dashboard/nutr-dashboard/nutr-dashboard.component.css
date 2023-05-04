@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-end;
 
+
 }
 
 .profile ul {
@@ -50,7 +51,7 @@
   background-color: #000;
 }
 
-h2 {
+.dashboard-h2 {
   font-size: 30px;
   padding: 15px;
   margin-bottom: 30px;
@@ -59,7 +60,7 @@ h2 {
   position: relative;
 }
 
-h2:before {
+.dashboard-h2:before {
   content: "";
   width: 90%;
   height: 3px;
@@ -69,7 +70,7 @@ h2:before {
   bottom: 0px;
   transform: translateX(-50%);
 }
-h2:after {
+.dashboard-h2:after {
   content: "";
   width: 20px;
   height: 20px;
@@ -87,6 +88,7 @@ h2:after {
   display: grid !important;
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  width: 100%;
 }
 
 .links a {
@@ -193,40 +195,87 @@ h2:after {
 .listnotif{
   position: absolute;
   width: 350px;
-  height: 350px;
+  height: 450px;
   box-shadow: 0 0 5px #0000005d;
   top: 100%;
   transform: translateX(-100%);
   z-index: 999;
   background-color: #fff;
+  box-shadow: 0 0 25px 3px #00000062;
+  overflow: hidden;
+}
+.listnotif .titrenotif{
+  padding: 12px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #bbb;
+  user-select: none;
 }
 
-
-.listnotif nav div a{
-  padding: 10px;
-  height: fit-content !important;
-  margin-bottom: 5px;
+.listnotif nav{
+  height: calc(100% - 45px);
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
+.listnotif nav::-webkit-scrollbar{
+  width: 8px;
+  background-color: transparent;
+}
 
-.listnotif div a {
-  position: relative;
-  gap: 10px;
+.listnotif nav::-webkit-scrollbar-thumb{
+  background-color: #bbb;
+  background-image: none;
+}
+
+.listnotif nav a {
   display: flex;
-  flex-direction: column;
-  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  transition: 0.3s;
+}
+.listnotif nav a:not(:last-of-type){
+  border-bottom: 1px solid #ddd;
+}
+.listnotif nav a div:nth-child(2){
+  flex: 1;
+}
+.listnotif nav a div:nth-child(1){
+  font-size: 25px;
+  position: relative;
+}
+.listnotif nav a > div:nth-child(1) *{
+  padding: 20px;
+  padding-left: 30px;
+}
+.listnotif nav a:hover{
+  background-color: #eee;
 }
 
-.listnotif div a span {
-  font-size: 14px !important;
-  padding-left: 10px;
+.noticontent *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.listnotif div:not(:last-child),
-.listnotif nav div a:not(:last-child) {
-  border: 1px solid #ddd;
-
+.noticontent > div{
+  margin-bottom: 5px;
+  padding-top: 10px;
 }
+.noticontent > div h4{
+  font-weight: 700;
+}
+.noticontent > div p{
+  font-weight: normal;
+  font-size: 14px;
+}
+.noticontent > span {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 
 .notifIcon {
   position: relative;
@@ -249,3 +298,5 @@ h2:after {
   justify-content: center;
   align-items: center;
 }
+
+

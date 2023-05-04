@@ -2,6 +2,17 @@ section{
   display: flex;
 }
 
+.screen{
+  display: flex;
+  flex: 1;
+}
+.screen .router{
+  width: 100%;
+}
+.screen .globalpatient{
+  width: 380px;
+}
+
 .profilepatient{
   padding: 10px;
   margin-bottom: 20px;

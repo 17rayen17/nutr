@@ -1,0 +1,37 @@
+<div class="globalpatient" >
+  <div class="profilepatient" >
+    <h1>Profile {{pofilename}}</h1>
+    <div>
+      <div class="imgpatient">
+        <img src="./assets/pdpBg.jpg" alt="" class="bgpatient" height="50" />
+        <img src="./assets/pdp.png" alt="" class="pdp" height="50" />
+      </div>
+      <div class="donnep">
+        <h2>{{pofilename}}</h2>
+        <p>{{pofilemail}}</p>
+        <button [routerLink]="['settings']">edit profile</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rating">
+    <h3>reviews</h3>
+    <!-- ============== -->
+    <div class="box">
+      <!--<ngb-rating></ngb-rating>-->
+      <div>
+        <h1>INPUT</h1>
+        <ngb-rating [max]="5" (click)="getvalue()" [formControl]="rating"></ngb-rating>
+        <h1>OUTPUT</h1>
+      <ngb-rating [max]="5" [rate]="finalrating" [readonly]="true"></ngb-rating>
+        <h2>{{finalrating}}</h2>
+        <p>from {{ratincount}} people</p>
+      </div>
+      <!---->
+      <div class="comments">
+
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { ProfilePatientComponent } from './nutr-client/profile-patient/profile-p
 import { StatistiquePatientComponent } from './nutr-client/statistique-patient/statistique-patient.component';
 import { FichepatientComponent } from './nutr-client/profile-patient/fichepatient/fichepatient.component';
 import { FicheconsultationComponent } from './nutr-client/profile-patient/ficheconsultation/ficheconsultation.component';
+import { FicheRegimeComponent } from './nutr-client/profile-patient/fiche-regime/fiche-regime.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,9 @@ const routes: Routes = [
       { path:'',component:DhashAddPatientComponent},
       {
         path: 'profile-patient/:id', component: ProfilePatientComponent, children: [
-        {path:'fichepatient',component:FichepatientComponent},
-        {path:'ficheconsulation',component:FicheconsultationComponent},
+          {path: 'fichepatient', component: FichepatientComponent},
+          { path: 'ficheconsulation', component: FicheconsultationComponent },
+          { path: 'ficheRegime', component: FicheRegimeComponent}
       ]},
       { path:'statistique',component:StatistiquePatientComponent },
     ]

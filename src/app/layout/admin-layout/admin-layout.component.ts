@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthloginService } from 'src/app/services/authlogin.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { AuthloginService } from 'src/app/services/authlogin.service';
   styleUrls: ['./admin-layout.component.css']
 })
 export class AdminLayoutComponent implements OnInit {
-
-  constructor(private auth : AuthloginService) { }
+  id:any
+  constructor(private auth: AuthloginService,
+  private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getme()
+    this.route.paramMap.subscribe((param : ParamMap) => {
+      this.id = +param.get('id')!;
+    })
   }
 
   firstname:any[]=[]

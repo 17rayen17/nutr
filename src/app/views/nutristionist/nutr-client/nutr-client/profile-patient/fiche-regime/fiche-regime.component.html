@@ -1,0 +1,81 @@
+<div class="mainbox">
+  <div class="meal">
+    <div class="upper">
+      <h2>MEAL</h2>
+      <div class="allDays">
+        <span class="arrow left-ar"><i class="fa-solid fa-chevron-left"></i></span>
+        <!-- button move with 40px by transform translateX-->
+        <button *ngFor="let i of count; let a = index" (click)="setCurrentDay(i)" [class.active]="i === currentDay ">{{i}}</button>
+        <span class="arrow right-ar"><i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+      <button type="button" class="addBtn" (click)="countr()"><i class="fa-solid fa-plus"></i></button>
+    </div>
+
+    <div class="perbar">
+      <span [ngStyle]="{'width.%':proteineper}">{{proteineper}}%</span>
+      <span [ngStyle]="{'width.%':glucideper}">{{glucideper}}%</span>
+      <span [ngStyle]="{'width.%':lipideper}">{{lipideper}}%</span>
+    </div>
+    <!--*****************************-->
+
+    <div class="myCards" *ngIf="regime.length != 0 ">
+      <ng-container *ngFor="let i of regime">
+        <div class="myCard" *ngIf="i.patientId === patientid">
+          <h3>{{i.nom}}</h3>
+          <ul>
+            <li><span>•famille:</span> {{i.famille}}</li>
+            <li><span>•calorie:</span> {{i.calorie}}</li>
+            <li><span>•proteine:</span> {{i.proteine}}</li>
+            <li><span>•glucide:</span> {{i.glucide}}</li>
+            <li><span>•lipide:</span> {{i.lipide}}</li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
+
+      <div class="iconfood mt-2">
+        <a data-toggle="modal" data-target="#exampleModal">
+          <i class="fa-regular fa-square-plus"></i>
+          Add food</a>
+      </div>
+
+  </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content popup">
+      <div class="title">
+        <h5 class="" >Add Food</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="formsearch" (ngSubmit)="onadd()">
+        <input type="search" placeholder="search" class="" [formControl]="search"
+    [matAutocomplete]="auto">
+    <mat-autocomplete #auto autoActiveFirstOption class="autocomplet">
+      <mat-option *ngFor="let i of filteredOptions | async" [value]="i.nom">{{i.nom}} --> de famille : {{i.famille}} </mat-option>
+    </mat-autocomplete>
+    <button class="" type="submit">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+  <!--*****************************-->
+
+  <div class="dailytotal">
+    <h6>Daily totals</h6>
+    <p><span>Calories</span><span>{{ dailyTotal[0]?.caloriePerDay[currentDay] ? dailyTotal[0].caloriePerDay[currentDay] + 'Kcal' : '0 Kcal' }}</span></p>
+    <p [attr.data-food]="proteineper + '%'" class="attr a1"><span>Proteins</span><span>{{ dailyTotal[0]?.proteinePerDay[currentDay ] ? dailyTotal[0].proteinePerDay[currentDay] + 'g' : '0 g' }}</span></p>
+    <p [attr.data-food]="glucideper + '%'" class="attr a2"><span>glucide</span><span>{{ dailyTotal[0]?.glucidePerDay[currentDay ] ? dailyTotal[0].glucidePerDay[currentDay] + 'g' : '0 g' }}</span></p>
+    <p [attr.data-food]="lipideper + '%'" class="attr a3"><span>lipide</span><span>{{ dailyTotal[0]?.lipidePerDay[currentDay ] ? dailyTotal[0].lipidePerDay[currentDay] + 'g' : '0 g' }}</span></p>
+    <p ><span>quantity</span><span>{{ dailyTotal[0]?.quantityPerDay[currentDay ] ? dailyTotal[0].quantityPerDay[currentDay] : 'NaN' }}</span></p>
+  </div>
+</div>
+

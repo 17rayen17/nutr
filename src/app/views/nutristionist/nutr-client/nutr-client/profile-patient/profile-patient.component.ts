@@ -5,6 +5,7 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
 import { StatistiquePatientComponent } from '../statistique-patient/statistique-patient.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
+import { AgendaComponent } from '../../../agenda/agenda/agenda.component';
 
 @Component({
   selector: 'app-profile-patient',
@@ -44,12 +45,15 @@ export class ProfilePatientComponent implements OnInit {
     this.formattedDate = this.datePipe.transform(this.date, 'EEEE, d MMMM yyyy', 'fr') ?? '';
     this.getnotes()
 
+
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = +params.get('id')!;
       this.crud.getpatientbyid(this.id).subscribe(res => {
         this.events=[res]
       })
     });
+    sessionStorage.setItem('patient id', this.id.toString())
+
 
 
     const btns: NodeListOf<HTMLDivElement> = document.querySelectorAll(".controls div");
@@ -75,7 +79,8 @@ export class ProfilePatientComponent implements OnInit {
     });
 
     this.noteform = new FormGroup({
-      "note":new FormControl(null)
+      "note": new FormControl(null),
+      "PatientId":new FormControl(this.id)
     })
   }
 
@@ -85,7 +90,7 @@ export class ProfilePatientComponent implements OnInit {
 
     })
   }
-
+//----------- NOTE ------------
   opnote=false
   openNote() {
     this.opnote = !this.opnote
@@ -97,10 +102,18 @@ export class ProfilePatientComponent implements OnInit {
     })
   }
 
+
   notes:any[]= []
   getnotes() {
     this.crud.getnote().subscribe(res => {
-      this.notes = res
+      this.notes = [];
+        res.filter((item : any) => {
+          if (item.PatientId == this.id) {
+            // console.log(item)
+            this.notes.push(item)
+            console.log(this.notes)
+          }
+        })
     })
   }
 
@@ -109,5 +122,7 @@ export class ProfilePatientComponent implements OnInit {
       this.getnotes()
     })
   }
+
+//--------------------------------------------
 
 }

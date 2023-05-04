@@ -20,7 +20,9 @@ export class DhashAddPatientComponent implements OnInit{
   dataSources!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(public dialog: MatDialog,private patient:CrudnutristionistService,private route:Router) { }
+  constructor(public dialog: MatDialog, private patient: CrudnutristionistService, private route: Router) {
+    sessionStorage.removeItem('patient id');
+  }
 
   ngOnInit(): void {
     this.getDATA()

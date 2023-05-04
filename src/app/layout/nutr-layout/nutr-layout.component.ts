@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
 @Component({
@@ -7,12 +8,19 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
   styleUrls: ['./nutr-layout.component.css']
 })
 export class NutrLayoutComponent implements OnInit {
-
-  constructor(private crud:CrudnutristionistService) {
+  id: any
+  constructor(private crud: CrudnutristionistService,
+  private route : ActivatedRoute) {
 
   }
   ngOnInit(): void {
     this.getdatanutr()
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.id = +params.get('id')!;
+    });
+
+
   }
 
   firstname:any[]=[]

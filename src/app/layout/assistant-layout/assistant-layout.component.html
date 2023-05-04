@@ -1,7 +1,7 @@
 <section>
   <div class="header">
-    <img src="assets/Capture2.PNG" alt="logo" routerLink="/assistant" style="cursor: pointer;">
-    <img src="assets/pdp.jpg" alt="pdp" routerLink="/assistant" style="cursor: pointer;">
+    <img src="assets/Capture2.PNG" alt="logo" [routerLink]="['/assistant',id]" [queryParams]="{username :firstname }" style="cursor: pointer;">
+    <img src="assets/pdp.jpg" alt="pdp" [routerLink]="['/assistant',id]" [queryParams]="{username :firstname }" style="cursor: pointer;">
     <div class="name">
       <h2>{{firstname}} {{lastname}}</h2>
       <p>{{email}}</p>

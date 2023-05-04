@@ -1,0 +1,224 @@
+<div class="globalpatient">
+  <div class="profilepatient">
+    <div class="fiche active">
+      <button type="button" class="btnsregime">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div class="ficheregime">
+        <h1>Fiche regime</h1>
+        <p>{{ pofilefirstname }} {{ pofilelasttname }}</p>
+        <hr class="b-1" />
+        <h4>% Daily Value *</h4>
+        <hr class="b-3" />
+        <div class="list">
+          <h3 data-per="1%">Total Fat <span>0.73g</span></h3>
+          <div class="block-1">
+            <hr class="b-3" />
+            <h4>Saturated Fat 0.10g</h4>
+            <hr class="b-3" />
+            <h4>Trans Fat 0.00g</h4>
+            <hr class="b-3" />
+            <h4>Polyunsaturated Fat 0.24g</h4>
+            <hr class="b-3" />
+            <h4>Monounsaturated Fat 0.16g</h4>
+          </div>
+
+          <hr class="b-3" />
+          <h3 data-per="0%">Cholesterol 0.00mg</h3>
+          <hr class="b-3" />
+          <h3 data-per="0%">Sodium 7.27mg</h3>
+          <hr class="b-3" />
+          <h3 data-per="15%">Potassium 538.36mg</h3>
+          <hr class="b-3" />
+          <h3 data-per="14%">Total Carbs 37.18g</h3>
+          <div class="block-1">
+            <hr class="b-3" />
+            <h4>Dietary Fiber 5.62g</h4>
+            <hr class="b-3" />
+            <h4>Sugars 28.74g</h4>
+          </div>
+
+          <hr class="b-3" />
+          <h3 data-per="5%">Proteins 2.39g</h3>
+          <hr class="b-3" />
+          <h3 data-per="38%">Vitamin A</h3>
+          <hr class="b-3" />
+          <h3 data-per="122%">Vitamin C</h3>
+          <hr class="b-3" />
+          <h3 data-per="4%">Calcium</h3>
+          <hr class="b-3" />
+          <h3 data-per="4%">Iron</h3>
+          <hr class="b-1" />
+
+          <div class="box" >
+            <!--////////////////////////-->
+            <div class="jour" data-jour="1" >
+              <h4 >Lundi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                  <p *ngIf="i.days == 1" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                  </p>
+              </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="2">
+              <h4>Mardi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 2" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="3">
+              <h4>Mercredi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 3" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="4">
+              <h4>Jeudi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 4" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="5">
+              <h4>Vendredi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 5" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="6">
+              <h4>Samedi</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 6" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+            <div class="jour" data-jour="7">
+              <h4>Dimanche</h4>
+              <ng-container *ngFor="let i of regime; let a = index">
+                <p *ngIf="i.days == 7" class="d-block">
+                  <a>nom : {{i.nom}}</a>
+                  <br>
+                  <a>famille : {{i.famille}}</a>
+                  <br>
+                  <a>quantity : {{i.quantity}}</a>
+                </p>
+            </ng-container>
+            </div>
+            <!--////////////////////////-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="datapatient">
+      <img src="./assets/pdpBg.jpg" alt="" class="bgpatient" />
+      <div>
+        <h1>{{ pofilefirstname }} {{ pofilelasttname }}</h1>
+        <p>{{ pofilemail }}</p>
+        <button type="button" [routerLink]="['settings']">edit profile</button>
+      </div>
+      <img src="./assets/pdp.png" alt="" class="pdp" />
+    </div>
+
+    <div class="nutrition">
+      <div class="nutrition-card">
+        <img
+          src="https://app.nutritioapp.com/images/pages/my_food.jpg"
+          alt="food"
+          width="131"
+        />
+        <div>
+          <h3>My food</h3>
+          <p>
+            Add and manage your own foods!
+            <br />
+            We already have a database with more than 80,000 items and recipes.
+          </p>
+          <a>LEARN MORE</a>
+        </div>
+      </div>
+      <div class="nutrition-card">
+        <img
+          src="https://app.nutritioapp.com/images/pages/my_recipes.jpg"
+          alt="food"
+          width="131"
+        />
+        <div>
+          <h3>My food</h3>
+          <p>
+            Add and manage your own foods!
+            <br />
+            We already have a database with more than 80,000 items and recipes.
+          </p>
+          <a>LEARN MORE</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress_p">
+      <h2>Progress</h2>
+
+      <div class="cards">
+        <div class="c" *ngFor="let i of cardsname">
+          <h4>{{ i }}</h4>
+          <span>9999</span>
+        </div>
+      </div>
+
+      <canvas id="piechart"></canvas>
+    </div>
+
+    <div class="doctor">
+      <a class="doctor_profile" href="">
+        <img
+          src="https://media.licdn.com/dms/image/C4D03AQE7YScjLU4qhQ/profile-displayphoto-shrink_800_800/0/1584844567410?e=2147483647&v=beta&t=kfCdZUdTLS654Rtigf8QjpaUXT1DyvbaICarBIonbQg"
+          alt="doctorPDP"
+        />
+        <div>
+          <h3>rayen andolsi</h3>
+          <p>Dietitian</p>
+          <span>4.2<i class="fa-solid fa-star"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

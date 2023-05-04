@@ -1,5 +1,6 @@
 .login {
   position: relative;
+  height: calc(100vh - 150px);
 }
 
 .login .bg {
@@ -114,15 +115,19 @@
   }
 }
 @media (max-width:767px){
-  .login .bg img:first-of-type{
-    display: none;
-  }
-  .login .bg img:last-of-type {
+  .login .bg img{
     display: none;
   }
   .login form {
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 999;
+  }
+  .login .bg {
+    width: 100%;
+    height: ;
+    overflow: visible !important;
   }
 }
 

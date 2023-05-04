@@ -1,5 +1,6 @@
 <section>
-  <div class="globalpatient">
+  <div class="screen">
+    <div class="globalpatient">
     <div class="profilepatient" *ngFor="let i of events">
       <h1>Profile {{i.firstname}}</h1>
       <div>
@@ -10,7 +11,6 @@
         <div class="donnep">
           <h2>{{i.firstname}} {{i.lastname}}</h2>
           <p>{{i.email}}</p>
-          <button>edit profile</button>
         </div>
       </div>
     </div>
@@ -18,6 +18,7 @@
     <div class="iconpatient">
       <button type="button" (click)="openstat()"><i class="fa-solid fa-gauge-high"></i><span>Progress</span></button>
       <button type="button" (click)="openNote()"><i class="fa-solid fa-clipboard"></i><span>Notes</span></button>
+      <button type="button" [routerLink]="['ficheRegime']"><i class="fa-solid fa-clipboard"></i><span>Fiche regime</span></button>
     </div>
     <!--fiche consultation etc ... -->
     <div class="fichetitle">
@@ -42,22 +43,28 @@
           </div>
         </div>
     </div>
+    </div>
+    <div class="router mr-2"><router-outlet></router-outlet></div>
   </div>
-<router-outlet></router-outlet>
+
+
+
+
 
 
 
   <!-- ************************  Note  ******************-->
   <div class="note" *ngIf="opnote" cdkDrag>
-    <div class="top">
-      <span><i class="fa-regular fa-circle-user"></i>Demo patient</span>
+    <div class="top" *ngFor="let i of events">
+      <span><i class="fa-regular fa-circle-user"></i>{{i.firstname}} {{i.lastname}}</span>
       <button type="button" (click)="openNote()"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <ul class="mid">
       <!-- /////////////////////// -->
       <li>
         <div class="date">{{formattedDate}}</div>
-        <div class="task" *ngFor="let i of notes;let id = index">
+
+        <div class="task m-2" *ngFor="let i of notes">
           <span>{{i.note}}</span><button (click)="deleteNote(i.id)"><i class="fa-regular fa-trash-can"></i></button>
         </div>
       </li>

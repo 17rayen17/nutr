@@ -11,6 +11,7 @@ import { AssistantLayoutComponent } from './assistant-layout/assistant-layout.co
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,7 +30,9 @@ import { PatientLayoutComponent } from './patient-layout/patient-layout.componen
     MatIconModule,
     ToastrModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+
   ]
 })
 export class LayoutModule { }

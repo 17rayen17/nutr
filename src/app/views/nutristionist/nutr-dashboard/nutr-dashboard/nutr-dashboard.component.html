@@ -8,16 +8,28 @@
         matTooltip="Notifications"
         #tooltip="matTooltip"
       ></i>
-      <span *ngIf="data.length != 0 && click == false">{{ data.length }}</span>
+      <span *ngIf="data.length != 0 && click == false">
+        {{ data.length }}
+      </span>
     </div>
     <div class="d-none listnotif">
+      <div class="titrenotif">Notifications</div>
       <nav>
-        <div>
-          <a *ngFor="let i of data">
-            {{ i.title }}
-            <span>start at :{{i.start}} {{ i.end }}</span>
-          </a>
-        </div>
+        <p *ngIf="data.length == 0 " class="">you have 0 Notifications</p>
+
+        <a *ngFor="let i of data">
+          <div>
+            <i class="fa-regular fa-user"></i>
+          </div>
+          <div class="noticontent">
+            <div>
+              <h4>{{ i.title }}</h4>
+              <p>azezaeazdasf</p>
+            </div>
+            <span>{{i.start}} {{ i.end }}</span>
+          </div>
+        </a>
+
       </nav>
     </div>
     <!--profile icon-->
@@ -33,7 +45,7 @@
   </div>
 </div>
 <!--/////////////////////////////////////////////-->
-<h2>Dashboard</h2>
+<h2 class="dashboard-h2">Dashboard</h2>
 <div class="links">
   <!-- ================================== -->
   <a [routerLink]="['patient']">

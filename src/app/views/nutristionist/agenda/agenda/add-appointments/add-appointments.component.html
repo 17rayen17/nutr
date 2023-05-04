@@ -10,18 +10,19 @@
     </div>
     <label for="patient">Patient</label>
     <select class="form-select" id="patient" aria-label="Default select example" formControlName="name">
-
       <option *ngFor="let i of patient"
-        value="{{i.firstname}}" >
+        value="{{i.firstname}}" selected>
         {{i.firstname}} {{i.lastname}}</option>
 
     </select>
-    <div *ngIf="phone">
-      <ng-container *ngFor="let i of phone;let a = index">
+
+    <div *ngIf="selectedPatient">
+      <ng-container >
         <label for="">Phone</label>
-        <input class="form-control" type="text" value="{{phone[a]}}" disabled>
+        <input class="form-control" type="text" [value]="selectedPatient" disabled>
       </ng-container>
     </div>
+
     <div class="dates">
       <!---->
       <div class="d-flex flex-column">

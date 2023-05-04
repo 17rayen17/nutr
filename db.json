@@ -61,12 +61,52 @@
   ],
   "appointement": [
     {
-      "title": "rayen first date",
-      "name": "ghassen",
-      "start": "2023-04-07",
-      "end": "19:00",
-      "colors": "#0084ff",
+      "title": "",
+      "name": "khalil",
+      "start": "",
+      "end": "12:53",
+      "colors": "",
+      "id": 1
+    },
+    {
+      "title": "lamia",
+      "name": "khalil",
+      "start": "2023-04-09",
+      "end": "12:54",
+      "colors": "",
       "id": 2
+    },
+    {
+      "title": "daddo",
+      "name": "dallanda",
+      "start": "2023-04-14",
+      "end": "17:06",
+      "colors": "#ff3c00",
+      "id": 3
+    },
+    {
+      "title": "khalil andolsi",
+      "name": "khalil",
+      "start": "2023-04-21",
+      "end": "22:07",
+      "colors": "",
+      "id": 4
+    },
+    {
+      "title": "lamia",
+      "name": "khalil",
+      "start": "2023-04-21",
+      "end": "21:51",
+      "colors": "#9740d1",
+      "id": 5
+    },
+    {
+      "title": "khalil",
+      "name": "khalil",
+      "start": "2023-04-26",
+      "end": "17:36",
+      "colors": "",
+      "id": 6
     }
   ],
   "assistant": [
@@ -84,22 +124,248 @@
       "id": 1
     }
   ],
-  "aliment": [
+  "aliment": [],
+  "regime": [
     {
       "famille": "veg",
-      "aliments": "1",
-      "Calories": "1320",
-      "Proteines": "120",
-      "glucides": "540",
-      "lipides": "50",
-      "quantite": "4",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "1",
+      "patientId": "4",
       "id": 1
-    }
-  ],
-  "patientstats": [
+    },
     {
-      "Weight": ""
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "2",
+      "patientId": "4",
+      "id": 2
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "3",
+      "patientId": "6",
+      "id": 3
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "2",
+      "patientId": "6",
+      "id": 4
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "3",
+      "patientId": "6",
+      "id": 5
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "3",
+      "patientId": "4",
+      "id": 6
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "4",
+      "patientId": "6",
+      "id": 7
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "5",
+      "patientId": "6",
+      "id": 8
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "1",
+      "patientId": "6",
+      "id": 9
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "6",
+      "patientId": "6",
+      "id": 10
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "3",
+      "patientId": "6",
+      "id": 11
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "3",
+      "patientId": "6",
+      "id": 12
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "4",
+      "patientId": "4",
+      "id": 13
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "4",
+      "patientId": "4",
+      "id": 14
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "5",
+      "patientId": "4",
+      "id": 15
+    },
+    {
+      "famille": "steak",
+      "nom": "steak",
+      "calorie": "1320",
+      "proteine": "120",
+      "glucide": "650",
+      "lipide": "90",
+      "quantity": "8",
+      "days": "5",
+      "patientId": "4",
+      "id": 16
+    },
+    {
+      "famille": "veg",
+      "nom": "prot",
+      "calorie": "1200",
+      "proteine": "145",
+      "glucide": "50",
+      "lipide": "89",
+      "quantity": "5",
+      "days": "5",
+      "patientId": "4",
+      "id": 17
     }
   ],
-  "note": []
+  "note": [
+    {
+      "note": "daddo",
+      "PatientId": 6,
+      "id": 1
+    },
+    {
+      "note": "fat",
+      "PatientId": 6,
+      "id": 2
+    },
+    {
+      "note": "khalil",
+      "PatientId": 4,
+      "id": 3
+    },
+    {
+      "note": "aa",
+      "PatientId": 6,
+      "id": 4
+    },
+    {
+      "note": "bb",
+      "PatientId": 6,
+      "id": 5
+    },
+    {
+      "note": "yee",
+      "PatientId": 4,
+      "id": 6
+    },
+    {
+      "note": "ghassen",
+      "PatientId": 6,
+      "id": 7
+    }
+  ]
 }

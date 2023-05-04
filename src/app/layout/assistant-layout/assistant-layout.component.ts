@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
 
 @Component({
@@ -7,11 +8,15 @@ import { CrudnutristionistService } from 'src/app/services/crudnutristionist.ser
   styleUrls: ['./assistant-layout.component.css']
 })
 export class AssistantLayoutComponent implements OnInit {
-
-  constructor(private crud: CrudnutristionistService) { }
+  id:any
+  constructor(private crud: CrudnutristionistService,
+  private route : ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getdata()
+    this.route.paramMap.subscribe((param : ParamMap) => {
+      this.id = +param.get('id')!;
+    })
   }
   firstname:any[]=[]
   lastname:any[]=[]

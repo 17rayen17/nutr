@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
               verticalPosition: this.verticalPosition,
               duration: this.durationInSeconds * 1000,
             });
-            this.router.navigate(['/admin'])
+            this.router.navigate(['/admin',this.dataR.user.id],{ queryParams: { username: this.dataR.user.firstname } })
 
             // nutritionist login ---------------------------
           } else if (this.dataR.user.role == "nutritionist") {
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
               verticalPosition: this.verticalPosition,
               duration: this.durationInSeconds * 1000,
             });
-            this.router.navigate(['/nutritionist'])
+            this.router.navigate(['/nutritionist',this.dataR.user.id],{ queryParams: { username: this.dataR.user.firstname } })
 
             // assistant login ---------------------------
           } else if (this.dataR.user.role == "assistant") {
@@ -71,7 +71,8 @@ export class LoginComponent implements OnInit {
               verticalPosition: this.verticalPosition,
               duration: this.durationInSeconds * 1000,
             });
-            this.router.navigate(['/assistant'])
+            this.router.navigate(['/assistant', this.dataR.user.id], { queryParams: { username: this.dataR.user.firstname } })
+
             // patient login ---------------------------
           } else if (this.dataR.user.role == "patient") {
             sessionStorage.setItem('token', this.dataR.access_token);
@@ -81,10 +82,12 @@ export class LoginComponent implements OnInit {
               verticalPosition: this.verticalPosition,
               duration: this.durationInSeconds * 1000,
             });
-            this.router.navigate(['/patient'])
+            this.router.navigate(['/patient',this.dataR.user.id],{ queryParams: { username: this.dataR.user.firstname } })
           }
 
 
+      }, err => {
+        console.log(err)
       })
     }
 

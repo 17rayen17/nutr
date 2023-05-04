@@ -9,29 +9,32 @@ h1{
 }
 
 .container{
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+}
+
+.container div {
   display: flex;
-  justify-content: space-between;
-  padding: 50px 10px;
-  margin-bottom: 150px;
-  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 
 .container img{
-  height: 400px;
-
-
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container form{
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 75%;
+  margin: 0;
   padding: 10px;
   background: white;
   border-radius: 8px;
   box-shadow: 0px 4px 15px -1px rgba(0, 0, 0, 0.5);
-
-
 }
 
 .container form label{
@@ -73,13 +76,4 @@ h1{
   font-size: 17px;
   font-weight: 700;
   letter-spacing: 1.1px;
-}
-
-@media (max-width: 767px) {
-  .container {
-      flex-direction: column;
-  }
-  .container form{
-      margin: 0 auto;
-  }
 }

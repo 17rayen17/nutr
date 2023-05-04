@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AddAppointmentsService } from 'src/app/services/add-appointments.service';
 import { CrudnutristionistService } from 'src/app/services/crudnutristionist.service';
@@ -20,6 +20,7 @@ export class NutrDashboardComponent implements OnInit {
     this.toggleprofile()
     this.appClickoutside()
 
+    //-------------------notificatio -----------------------------------
     const notifbtn = document.querySelector('.notifbtn') as HTMLButtonElement;
     const listnotif = document.querySelector('.listnotif') as HTMLElement;
     notifbtn.onclick = function () {
@@ -34,10 +35,14 @@ export class NutrDashboardComponent implements OnInit {
       // Otherwise, hide the notification list
       listnotif?.classList.add('d-none');
     });
+
+    //----------------------------------------------------------
+
     this.getapoint()
     this.getpatient()
     this.getassist()
     this.data
+
   }
 
   data: any[] = []
@@ -51,19 +56,22 @@ export class NutrDashboardComponent implements OnInit {
 
       });
       console.log(this.data);
+
+      //-------------toastr -----------------------
       const apptTimes = JSON.parse(JSON.stringify(this.data.map(appt => ({ start: appt.start, end: appt.end }))));
       const apptTimesString = apptTimes.map((appt : any) => `<li>${appt.start} - ${appt.end}</li>`).join('');
       // console.log(apptTimesString.length)
       if (apptTimesString.length != 0) {
         this.toastr.warning(
-          `<div class="toast-message">
+          `<div class="toast-message" >
             <p><strong>Upcoming Appointments:</strong></p>
             <ul>satrt at${apptTimesString}</ul>
           </div>`,
           'warning',
-          { enableHtml: true, closeButton: true, timeOut: 5000 }
+          { enableHtml: true, closeButton: true, timeOut: 3000 }
         );
       }
+      //------------------------------------------------------
 
 
     });
@@ -104,7 +112,6 @@ export class NutrDashboardComponent implements OnInit {
   }
 
   logout() {
-    sessionStorage.clear()
     this.route.navigate(['/'])
   }
 

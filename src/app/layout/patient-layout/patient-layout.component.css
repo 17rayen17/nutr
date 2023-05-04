@@ -12,7 +12,12 @@ section{
 }
 
 .header {
-  background: #D5E3B6;
+  background: #c2dfbb;
+;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -73,6 +78,7 @@ section{
 }
 
 .change{
+  margin-left: 208.86px;
   flex:1;
   overflow: hidden;
   overflow-y: scroll;

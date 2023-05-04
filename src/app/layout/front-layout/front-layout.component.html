@@ -1,19 +1,24 @@
 
 <header>
 
-  <a routerLink="/"><img src="assets/Capture.PNG" ></a>
-  <mat-icon class="bars">menu</mat-icon>
+  <a routerLink="/"><img src="assets/Capture2.PNG" ></a>
+  <mat-icon class="bars" id="bars" (click)="onActiveIcion($event)">menu</mat-icon>
   <ul>
-      <li><a routerLink="/">Overview</a></li>
-      <li><a routerLink="/features">Features</a></li>
-      <li><a routerLink="/contact">Contact As</a></li>
-      <li><a routerLink="/about">About As</a></li>
+      <li ><a routerLink="/" (click)="disableClick()">Overview</a></li>
+      <li routerLinkActive="active"><a routerLink="/features" (click)="disableClick()">Features</a></li>
+      <li routerLinkActive="active"><a routerLink="/contact" (click)="disableClick()">Contact As</a></li>
+      <li routerLinkActive="active"><a routerLink="/about" (click)="disableClick()">About As</a></li>
   </ul>
 
 <form >
   <button mat-button routerLink="/login"> Log In</button>
- <!--<button mat-button routerLink=""> <mat-icon>perm_identity</mat-icon>Sign Up</button>-->
+<!--<button mat-button routerLink=""> <mat-icon>perm_identity</mat-icon>Sign Up</button>-->
 
 </form>
 </header>
-<router-outlet></router-outlet>
+
+
+<main [@routerTransition]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</main>
+

@@ -1,11 +1,11 @@
+
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
   position: relative;
-
-
 }
 
 header img{
@@ -46,7 +46,8 @@ header ul li a::before{
   transition: 0.4s;
 }
 
-header ul li a:hover::before{
+header ul li a:hover::before,
+header ul li.active a::before{
   width: 100%;
 }
 
@@ -71,6 +72,7 @@ header form button:first-child{
 }
 header .bars {
   display: none;
+  cursor: pointer;
 }
 
 @media (max-width: 992px) {
@@ -81,17 +83,60 @@ header .bars {
       display: block;
       order: -1;
   }
-  header .bars:hover ~ ul{
-      z-index: 999;
-      display: block;
-      position: absolute;
-      width: 100%;
-
-      left: 0;
-      top: 100%;
-      padding: 10px 0;
+  header .bars.active ~ ul{
+    background-color: #688268c5;
+    z-index: 999;
+    display: block;
+    position: absolute;
+    height: fit-content;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    padding: 0;
   }
-  header .bars:hover~ul li a {
+  header .bars.active ~ ul li {
+    transform: translateY(-10px);
+  }
+  header .bars.active ~ ul::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff63;
+    filter: blur(15px);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  header ul li a::before {
+    background-color: transparent;
+  }
+  header ul li a {
+    width: 100%;
+    text-align: center;
+    transition: 0.2s;
+  }
+  header .bars.active ~ ul li a::after {
+    content: "";
+    width: 0px;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-color: #688268;
+    translate: -50% -50%;
+    transition: 0.4s;
+    z-index: -1;
+    border-radius: 100px;
+  }
+  header ul li a:hover {
+    color: #fff;
+    position: relative;
+  }
+  header .bars.active ~ ul li a:hover::after {
+    width: 100%;
+    border-radius: 0;
+  }
+  header .bars.active ~ ul li a {
       padding: 10px 10px;
       margin-right: auto;
       width: 100%;

@@ -120,6 +120,14 @@ export class CrudnutristionistService {
   deletenote(id: number): Observable<any>{
     return this.http.delete(`http://localhost:3000/note/${id}`)
   }
+  //--------------------crud Fieche Regime -----------------------
+  getregime():Observable<any> {
+    return this.http.get('http://localhost:3000/regime')
+  }
+
+  createregime(data : any):Observable<any> {
+    return this.http.post('http://localhost:3000/regime',data)
+  }
 }
 
 

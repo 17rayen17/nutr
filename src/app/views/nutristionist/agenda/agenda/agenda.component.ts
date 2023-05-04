@@ -84,7 +84,7 @@ export class AgendaComponent implements OnInit {
   };
 
   eventdrops(eventDropInfo: EventDropArg) {
-  
+
   }
 
   onDateclick() {

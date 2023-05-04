@@ -15,7 +15,7 @@ const routes: Routes = [
   ]},
 
   {
-    path: 'admin', component: AdminLayoutComponent,canActivate:[AuthGuard] ,children: [
+    path: 'admin/:id', component: AdminLayoutComponent,canActivate:[AuthGuard] ,children: [
       {path:'',loadChildren:()=>import('./views/admin/profile-admin/profile-admin.module').then(m=>m.ProfileAdminModule)},
       {path:'admin-nutr',loadChildren:()=>import('./views/admin/admin-nutr/admin-nutr.module').then(m=>m.AdminNutrModule)},
       {path:'admin-assistant',loadChildren:()=>import('./views/admin/admin-assistant/admin-assistant.module').then(m=>m.AdminAssistantModule)},
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'nutritionist', component: NutrLayoutComponent,canActivate:[AuthGuard], children: [
+    path: 'nutritionist/:id', component: NutrLayoutComponent,canActivate:[AuthGuard], children: [
       { path: '', loadChildren: () => import('./views/nutristionist/nutr-dashboard/nutr-dashboard.module').then(m => m.NutrDashboardModule) },
       {path:'patient',loadChildren:()=>import('./views/nutristionist/nutr-client/nutr-client.module').then(m=>m.NutrClientModule) },
       {path:'agenda',loadChildren:()=>import('./views/nutristionist/agenda/agenda.module').then(m=>m.AgendaModule) },
@@ -34,7 +34,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'assistant', component: AssistantLayoutComponent,canActivate:[AuthGuard], children: [
+    path: 'assistant/:id', component: AssistantLayoutComponent,canActivate:[AuthGuard], children: [
       { path: '', loadChildren: () => import('./views/assistant/assist-dashboard/assist-dashboard.module').then(m => m.AssistDAshboardModule) },
       { path: 'assist-agenda', loadChildren: () => import('./views/assistant/assist-agenda/assist-agenda.module').then(m => m.AssistAgendaModule) },
       { path: 'assist-patient', loadChildren: () => import('./views/assistant/assist-patient/assist-patient.module').then(m => m.AssistPatientModule) },
@@ -42,8 +42,9 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'patient', component: PatientLayoutComponent,canActivate:[AuthGuard], children: [
-    {path:'',loadChildren:()=>import('./views/patient/patient-dash/patient-dash.module').then(m => m.PatientDashModule)},
+    path: 'patient/:id', component: PatientLayoutComponent,canActivate:[AuthGuard], children: [
+    {path:'',loadChildren:()=>import('./views/patient/patient-dash/patient-dash/patient-dash.module').then(m => m.PatientDashModule)},
+    {path:'settings',loadChildren:()=>import('./views/patient/patient-dash/edti-profile/edti-profile.module').then(m => m.EdtiProfileModule)}
   ]},
 
   {path:'**',redirectTo:'/'}
@@ -52,7 +53,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{scrollPositionRestoration:'enabled'})],
+  imports: [RouterModule.forRoot(routes,{useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
